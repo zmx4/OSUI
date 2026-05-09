@@ -1,30 +1,33 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Extensions.DependencyInjection;
 using OSUI.ViewModels;
 
 namespace OSUI.Views.Windows;
 
 public partial class LoginWindow : Window
 {
-    public LoginWindow()
+    public LoginWindow(LoginViewModel vm)
     {
         InitializeComponent();
         
-        DataContext = new LoginViewModel(
-            onLoginSuccess: () =>
-            {
-                // 登录成功：打开主窗口，关闭自身
-                var main = new MainWindow();
-                main.Show();
-                Close();
-            },
-            onGoToRegister: () =>
-            {
-                // 跳转到注册窗口
-                var register = new RegisterWindow();
-                register.Show();
-                Close();
-            });
+        DataContext = vm;
+        
+        vm.OnLoginSuccess = () =>
+        {
+            // 登录成功：打开主窗口，关闭自身
+            var main = App.ServiceProvider.GetRequiredService<MainWindow>();
+            main.Show();
+            Close();
+        };
+        
+        vm.OnGoToRegister = () =>
+        {
+            // 跳转到注册窗口
+            var register = App.ServiceProvider.GetRequiredService<RegisterWindow>();
+            register.Show();
+            Close();
+        };
     }
     private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
     {

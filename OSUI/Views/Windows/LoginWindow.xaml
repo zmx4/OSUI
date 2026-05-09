@@ -10,11 +10,6 @@
         Width="450" 
         WindowStartupLocation="CenterScreen">
     
-    <Window.DataContext>
-        <vm:LoginViewModel />
-    </Window.DataContext>
-
-    
 
     <Grid>
     <Border Padding="40,32" VerticalAlignment="Center">

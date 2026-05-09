@@ -3,16 +3,8 @@ using OSUI.Models;
 
 namespace OSUI.Services;
 
-public sealed class AuthService
+public sealed class AuthService : IAuthService
 {
-    #region 单例
-
-    public static AuthService Instance { get; } = new();
-
-    private AuthService() { }
-
-    #endregion
-
     #region 状态
 
     /// <summary>当前登录的用户；未登录时为 null。</summary>

@@ -11,9 +11,6 @@
         Height="550"
         WindowStartupLocation="CenterScreen">
     
-    <Window.DataContext>
-        <vm:RegisterViewModel />
-    </Window.DataContext>
 
     <Grid>
         <Border Padding="40,32" VerticalAlignment="Center">

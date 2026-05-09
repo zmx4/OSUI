@@ -7,17 +7,14 @@ namespace OSUI.ViewModels
 {
     public partial class RegisterViewModel : ObservableObject
     {
-        private readonly Action _onRegisterSuccess;
-        private readonly Action _onCancel;
+        private readonly IAuthService _authService;
 
-        public RegisterViewModel(Action onRegisterSuccess, Action onCancel)
-        {
-            _onRegisterSuccess = onRegisterSuccess;
-            _onCancel = onCancel;
-        }
+        public Action? OnRegisterSuccess { get; set; }
+        public Action? OnCancel { get; set; }
 
-        public RegisterViewModel()
+        public RegisterViewModel(IAuthService authService)
         {
+            _authService = authService;
         }
 
         [ObservableProperty]
@@ -56,9 +53,9 @@ namespace OSUI.ViewModels
                 return;
             }
 
-            if (AuthService.Instance.Register(Username, Password))
+            if (_authService.Register(Username, Password))
             {
-                _onRegisterSuccess();
+                OnRegisterSuccess?.Invoke();
             }
             else
             {
@@ -70,7 +67,7 @@ namespace OSUI.ViewModels
         [RelayCommand]
         private void Cancel()
         {
-            _onCancel();
+            OnCancel?.Invoke();
         }
     }
 }

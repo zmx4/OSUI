@@ -10,18 +10,14 @@ namespace OSUI.ViewModels
 {
     public partial class LoginViewModel : ObservableObject
     {
-        private readonly Action _onLoginSuccess;
-        private readonly Action _onGoToRegister;
+        private readonly IAuthService _authService;
 
-        public LoginViewModel(Action onLoginSuccess, Action onGoToRegister)
-        {
-            _onLoginSuccess = onLoginSuccess;
-            _onGoToRegister = onGoToRegister;
-        }
+        public Action? OnLoginSuccess { get; set; }
+        public Action? OnGoToRegister { get; set; }
 
-        public LoginViewModel()
+        public LoginViewModel(IAuthService authService)
         {
-            
+            _authService = authService;
         }
 
         [ObservableProperty]
@@ -46,10 +42,10 @@ namespace OSUI.ViewModels
         /// AuthService.CurrentUser 保持 null，CurrentRole 自动为 Guest
         /// </summary>
         [RelayCommand]
-        private void EnterAsGuest() => _onLoginSuccess();
+        private void EnterAsGuest() => OnLoginSuccess?.Invoke();
 
         [RelayCommand]
-        private void GoToRegister() => _onGoToRegister();
+        private void GoToRegister() => OnGoToRegister?.Invoke();
 
         [RelayCommand(CanExecute = nameof(CanLogin))]
         private void Login()
@@ -57,9 +53,9 @@ namespace OSUI.ViewModels
             HasError = false;
             ErrorMessage = string.Empty;
 
-            if (AuthService.Instance.Login(Username, Password))
+            if (_authService.Login(Username, Password))
             {
-                _onLoginSuccess();
+                OnLoginSuccess?.Invoke();
             }
             else
             {
