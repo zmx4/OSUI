@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/MainWindow (snapshot).xaml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/MainWindow (snapshot).xaml" />
+              <option name="originalContent" value="&lt;Window x:Class=&quot;OSUI.Views.Windows.MainWindow&quot;&#10;        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&#10;        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&#10;        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;&#10;        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;&#10;        xmlns:local=&quot;clr-namespace:OSUI&quot;&#10;        mc:Ignorable=&quot;d&quot;&#10;        Title=&quot;MainWindow&quot; Height=&quot;450&quot; Width=&quot;800&quot; WindowStartupLocation=&quot;CenterScreen&quot;&gt;&#10;    &lt;Grid&gt;&#10;        &lt;TextBlock Text=&quot;Welcome to Main Window!&quot; FontSize=&quot;32&quot; FontWeight=&quot;Bold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;NavigationWindow&gt;&#10;            &#10;        &lt;/NavigationWindow&gt;&#10;    &lt;/Grid&gt;&#10;&lt;/Window&gt;&#10;" />
+              <option name="updatedContent" value="&lt;Window x:Class=&quot;OSUI.Views.Windows.MainWindow&quot;&#10;        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&#10;        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&#10;        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;&#10;        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;&#10;        xmlns:local=&quot;clr-namespace:OSUI&quot;&#10;        mc:Ignorable=&quot;d&quot;&#10;        Title=&quot;MainWindow&quot; Height=&quot;450&quot; Width=&quot;800&quot; WindowStartupLocation=&quot;CenterScreen&quot;&gt;&#10;    &lt;Grid&gt;&#10;        &lt;TextBlock Text=&quot;Welcome to Main Window!&quot; FontSize=&quot;32&quot; FontWeight=&quot;Bold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;/Grid&gt;&#10;&lt;/Window&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
