@@ -7,6 +7,42 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBlock Text="Welcome to Main Window!" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="791*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0"
+                Padding="16,0"
+                Background="{DynamicResource NavigationViewContentBackground}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="0,0,0,1">
+            <Grid Height="52">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" 
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                    <TextBlock Text="OSUI" 
+                               FontSize="18" 
+                               FontWeight="Medium"
+                               VerticalAlignment="Center"/>
+                    <Button Margin="4,0,4,0"
+                            Content="调度算法"
+                            Style="{StaticResource HyperlinkButtonStyle}"
+                            />
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        
+        
     </Grid>
 </Window>

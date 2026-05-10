@@ -8,21 +8,14 @@ using OSUI.Services;
 
 namespace OSUI.ViewModels
 {
-    public partial class LoginViewModel : ObservableObject
+    public partial class LoginViewModel(IAuthService authService) : ObservableObject
     {
-        private readonly IAuthService _authService;
-
         public Action? OnLoginSuccess { get; set; }
         public Action? OnGoToRegister { get; set; }
 
-        public LoginViewModel(IAuthService authService)
-        {
-            _authService = authService;
-        }
-
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
-        public partial string Username { get; set; } = string.Empty;
+        private partial string Username { get; set; } = string.Empty;
 
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
@@ -53,7 +46,7 @@ namespace OSUI.ViewModels
             HasError = false;
             ErrorMessage = string.Empty;
 
-            if (_authService.Login(Username, Password))
+            if (authService.Login(Username, Password))
             {
                 OnLoginSuccess?.Invoke();
             }

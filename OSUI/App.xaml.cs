@@ -35,6 +35,9 @@ public partial class App : Application
         services.AddTransient<LoginWindow>();
         services.AddTransient<RegisterWindow>();
         services.AddTransient<MainWindow>();
+        
+        // Pages
+        services.AddTransient<MainWindowViewModel>();
     }
 
     protected override void OnStartup(StartupEventArgs e)

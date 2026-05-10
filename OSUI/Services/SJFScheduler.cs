@@ -9,7 +9,7 @@ public class SJFScheduler : IScheduler
 {
     public List<Process> Schedule(List<Process> processes)
     {
-        // 深拷贝避免影响原数据
+        // 拷贝避免影响原数据
         var remaining = new List<Process>(processes);
         var completed = new List<Process>();   // 已完成进程
         int currentTime = 0;
