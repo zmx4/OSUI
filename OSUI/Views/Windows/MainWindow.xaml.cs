@@ -7,8 +7,9 @@ namespace OSUI.Views.Windows;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow(Views.Pages.HelloPage helloPage)
     {
         InitializeComponent();
+        // MainFrame.Navigate(helloPage);
     }
 }

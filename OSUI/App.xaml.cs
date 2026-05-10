@@ -30,6 +30,7 @@ public partial class App : Application
         // ViewModels
         services.AddTransient<LoginViewModel>();
         services.AddTransient<RegisterViewModel>();
+        services.AddTransient<HelloPageViewModel>();
 
         // Windows
         services.AddTransient<LoginWindow>();
@@ -38,6 +39,7 @@ public partial class App : Application
         
         // Pages
         services.AddTransient<MainWindowViewModel>();
+        services.AddTransient<Views.Pages.HelloPage>();
     }
 
     protected override void OnStartup(StartupEventArgs e)
