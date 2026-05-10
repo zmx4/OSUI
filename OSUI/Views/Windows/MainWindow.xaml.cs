@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace OSUI.Views.Windows;
 
@@ -7,9 +8,10 @@ namespace OSUI.Views.Windows;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow(Views.Pages.HelloPage helloPage)
+    public MainWindow()
     {
         InitializeComponent();
-        // MainFrame.Navigate(helloPage);
+        var helloPage = App.ServiceProvider.GetRequiredService<Views.Pages.HelloPage>();
+        MainFrame.Navigate(helloPage);
     }
 }

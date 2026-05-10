@@ -7,27 +7,28 @@ namespace OSUI.Views.Windows;
 
 public partial class LoginWindow : Window
 {
-    public LoginWindow(LoginViewModel vm)
+    public LoginWindow()
     {
         InitializeComponent();
         
-        DataContext = vm;
-        
-        vm.OnLoginSuccess = () =>
+        if (DataContext is LoginViewModel vm)
         {
-            // 登录成功：打开主窗口，关闭自身
-            var main = App.ServiceProvider.GetRequiredService<MainWindow>();
-            main.Show();
-            Close();
-        };
-        
-        vm.OnGoToRegister = () =>
-        {
-            // 跳转到注册窗口
-            var register = App.ServiceProvider.GetRequiredService<RegisterWindow>();
-            register.Show();
-            Close();
-        };
+            vm.OnLoginSuccess = () =>
+            {
+                // 登录成功：打开主窗口，关闭自身
+                var main = App.ServiceProvider.GetRequiredService<MainWindow>();
+                main.Show();
+                Close();
+            };
+            
+            vm.OnGoToRegister = () =>
+            {
+                // 跳转到注册窗口
+                var register = App.ServiceProvider.GetRequiredService<RegisterWindow>();
+                register.Show();
+                Close();
+            };
+        }
     }
     private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
     {

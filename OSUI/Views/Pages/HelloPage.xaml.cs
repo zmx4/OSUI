@@ -4,9 +4,8 @@ namespace OSUI.Views.Pages;
 
 public partial class HelloPage : Page
 {
-    public HelloPage(ViewModels.HelloPageViewModel viewModel)
+    public HelloPage()
     {
         InitializeComponent();
-        DataContext = viewModel;
     }
 }

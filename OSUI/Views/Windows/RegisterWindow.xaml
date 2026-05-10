@@ -6,10 +6,12 @@
         xmlns:local="clr-namespace:OSUI.Views.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:OSUI.ViewModels"
+        xmlns:ext="clr-namespace:OSUI.Extensions"
         Title="Register System" 
         Width="450" 
         Height="550"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        DataContext="{ext:DI {x:Type vm:RegisterViewModel}}">
     
 
     <Grid>

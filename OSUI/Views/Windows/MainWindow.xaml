@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OSUI"
+        xmlns:vm="clr-namespace:OSUI.ViewModels"
+        xmlns:ext="clr-namespace:OSUI.Extensions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        DataContext="{ext:DI {x:Type vm:MainWindowViewModel}}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="169*"/>

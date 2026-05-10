@@ -4,8 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:OSUI.Views.Pages"
+      xmlns:vm="clr-namespace:OSUI.ViewModels"
+      xmlns:ext="clr-namespace:OSUI.Extensions"
+      d:DataContext="{d:DesignInstance vm:HelloPageViewModel}"
+      DataContext="{ext:DI {x:Type vm:HelloPageViewModel}}"
       mc:Ignorable="d"
       Title="HelloPage" Height="450" Width="800">
+   
     <Grid>
         <TextBlock Text="{Binding HelloText}"></TextBlock>
     </Grid>
