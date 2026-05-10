@@ -15,17 +15,17 @@ namespace OSUI.ViewModels
 
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
-        private partial string Username { get; set; } = string.Empty;
+        private string _username = string.Empty;
 
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
-        public partial string Password { get; set; } = string.Empty;
+        private string _password = string.Empty;
 
         [ObservableProperty]
-        public partial string ErrorMessage { get; private set; } = string.Empty;
+        private string _errorMessage = string.Empty;
 
         [ObservableProperty]
-        public partial bool HasError { get; private set; }
+        private bool _hasError;
 
         private bool CanLogin() =>
             !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
