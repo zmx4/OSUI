@@ -34,6 +34,7 @@ public partial class App : Application
         services.AddTransient<LoginViewModel>();
         services.AddTransient<RegisterViewModel>();
         services.AddTransient<HelloPageViewModel>();
+        services.AddTransient<SchedulerPageViewModel>();
         services.AddTransient<MainWindowViewModel>();
 
         // Windows

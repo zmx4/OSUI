@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using OSUI.Services;
 
 namespace OSUI.ViewModels;
@@ -14,5 +15,11 @@ public partial class MainWindowViewModel : ObservableObject
     {
         NavigationService = navigationService;
         navigationService.NavigateTo<HelloPageViewModel>();
+    }
+    
+    [RelayCommand]
+    private void NavigateToSchedulerPage()
+    {
+        NavigationService.NavigateTo<SchedulerPageViewModel>();
     }
 }

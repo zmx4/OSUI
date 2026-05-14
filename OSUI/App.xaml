@@ -1,7 +1,9 @@
 ﻿<Application x:Class="OSUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OSUI">
+             xmlns:local="clr-namespace:OSUI"
+             xmlns:vm="clr-namespace:OSUI.ViewModels"
+             xmlns:pages="clr-namespace:OSUI.Views.Pages">
     <Application.Resources>
     <ResourceDictionary>
         
@@ -10,6 +12,12 @@
                       xmlns:vm="clr-namespace:OSUI.ViewModels" 
                       xmlns:views="clr-namespace:OSUI.Views.Pages">
             <views:HelloPage />
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:SchedulerPageViewModel}"
+                      xmlns:vm="clr-namespace:OSUI.ViewModels" 
+                      xmlns:views="clr-namespace:OSUI.Views.Pages">
+            <pages:Scheduler />
         </DataTemplate>
 
         <Style x:Key="HyperlinkButtonStyle" TargetType="Button">
