@@ -41,7 +41,8 @@
                     <Button Margin="4,0,4,0"
                             Content="调度算法"
                             Style="{StaticResource HyperlinkButtonStyle}"
-                            Command="{Binding NavigateToSchedulerPageCommand}"/>
+                            Command="{Binding NavigateToSchedulerCommand}"
+                            />
                 </StackPanel>
             </Grid>
         </Border>

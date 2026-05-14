@@ -17,7 +17,7 @@
         <DataTemplate DataType="{x:Type vm:SchedulerPageViewModel}"
                       xmlns:vm="clr-namespace:OSUI.ViewModels" 
                       xmlns:views="clr-namespace:OSUI.Views.Pages">
-            <pages:Scheduler />
+            <views:Scheduler />
         </DataTemplate>
 
         <Style x:Key="HyperlinkButtonStyle" TargetType="Button">

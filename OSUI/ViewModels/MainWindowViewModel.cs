@@ -16,9 +16,9 @@ public partial class MainWindowViewModel : ObservableObject
         NavigationService = navigationService;
         navigationService.NavigateTo<HelloPageViewModel>();
     }
-    
+
     [RelayCommand]
-    private void NavigateToSchedulerPage()
+    private void NavigateToScheduler()
     {
         NavigationService.NavigateTo<SchedulerPageViewModel>();
     }
