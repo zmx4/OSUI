@@ -2,7 +2,7 @@
 
 namespace OSUI.Views.Pages;
 
-public partial class HelloPage : Page
+public partial class HelloPage : UserControl
 {
     public HelloPage()
     {

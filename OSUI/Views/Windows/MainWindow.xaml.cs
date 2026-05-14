@@ -12,6 +12,6 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         var helloPage = App.ServiceProvider.GetRequiredService<Views.Pages.HelloPage>();
-        MainFrame.Navigate(helloPage);
+        // MainFrame.Navigate(helloPage);
     }
 }

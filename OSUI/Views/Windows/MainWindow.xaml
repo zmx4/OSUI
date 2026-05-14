@@ -45,7 +45,7 @@
             </Grid>
         </Border>
         
-        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" x:Name="MainFrame" />
-        
+        <!-- <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" x:Name="MainFrame" /> -->
+        <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding NavigationService.CurrentView}"></ContentControl>
     </Grid>
 </Window>

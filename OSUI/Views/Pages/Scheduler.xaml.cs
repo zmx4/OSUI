@@ -2,7 +2,7 @@
 
 namespace OSUI.Views.Pages;
 
-public partial class Scheduler : Page
+public partial class Scheduler : UserControl
 {
     public Scheduler()
     {

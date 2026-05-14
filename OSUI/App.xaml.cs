@@ -25,12 +25,16 @@ public partial class App : Application
     private void ConfigureServices(IServiceCollection services)
     {
         // Services
+        services.AddSingleton<Func<Type, PageViewModel>>(serviceProvider => 
+            viewModelType => (PageViewModel)serviceProvider.GetRequiredService(viewModelType));
+        services.AddSingleton<INavigationService, NavigationService>();
         services.AddSingleton<IAuthService, AuthService>();
 
         // ViewModels
         services.AddTransient<LoginViewModel>();
         services.AddTransient<RegisterViewModel>();
         services.AddTransient<HelloPageViewModel>();
+        services.AddTransient<MainWindowViewModel>();
 
         // Windows
         services.AddTransient<LoginWindow>();
@@ -38,8 +42,8 @@ public partial class App : Application
         services.AddTransient<MainWindow>();
         
         // Pages
-        services.AddTransient<MainWindowViewModel>();
         services.AddTransient<Views.Pages.HelloPage>();
+        services.AddTransient<Views.Pages.Scheduler>();
     }
 
     protected override void OnStartup(StartupEventArgs e)

@@ -1,17 +1,19 @@
-﻿<Page x:Class="OSUI.Views.Pages.HelloPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:OSUI.Views.Pages"
-      xmlns:vm="clr-namespace:OSUI.ViewModels"
-      xmlns:ext="clr-namespace:OSUI.Extensions"
-      d:DataContext="{d:DesignInstance vm:HelloPageViewModel}"
-      DataContext="{ext:DI {x:Type vm:HelloPageViewModel}}"
-      mc:Ignorable="d"
-      Title="HelloPage" Height="450" Width="800">
-   
+﻿<UserControl x:Class="OSUI.Views.Pages.HelloPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:OSUI.Views.Pages"
+             xmlns:vm="clr-namespace:OSUI.ViewModels"
+             xmlns:extensions="clr-namespace:OSUI.Extensions"
+             d:DataContext="{d:DesignInstance vm:HelloPageViewModel}"
+             DataContext="{extensions:DI {x:Type vm:HelloPageViewModel}}"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="{Binding HelloText}"></TextBlock>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="24"
+                   Text="{Binding HelloText}"></TextBlock>
     </Grid>
-</Page>
+</UserControl>

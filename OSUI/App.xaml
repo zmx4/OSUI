@@ -6,6 +6,12 @@
     <ResourceDictionary>
         
 
+        <DataTemplate DataType="{x:Type vm:HelloPageViewModel}" 
+                      xmlns:vm="clr-namespace:OSUI.ViewModels" 
+                      xmlns:views="clr-namespace:OSUI.Views.Pages">
+            <views:HelloPage />
+        </DataTemplate>
+
         <Style x:Key="HyperlinkButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />

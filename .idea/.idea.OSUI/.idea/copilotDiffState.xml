@@ -3,6 +3,15 @@
   <component name="CopilotDiffPersistence">
     <option name="pendingDiffs">
       <map>
+        <entry key="/HelloPage (snapshot).xaml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/HelloPage (snapshot).xaml" />
+              <option name="originalContent" value="&lt;Page x:Class=&quot;OSUI.Views.Pages.HelloPage&quot;&#10;      xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&#10;      xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&#10;      xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;&#10;      xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;&#10;      xmlns:local=&quot;clr-namespace:OSUI.Views.Pages&quot;&#10;      xmlns:vm=&quot;clr-namespace:OSUI.ViewModels&quot;&#10;      d:DataContext=&quot;{d:DesignInstance vm:HelloPageViewModel}&quot;&#10;      mc:Ignorable=&quot;d&quot;&#10;      Title=&quot;HelloPage&quot; Height=&quot;450&quot; Width=&quot;800&quot;&gt;&#10;   &#10;    &lt;Grid&gt;&#10;        &lt;TextBlock Text=&quot;{Binding HelloText}&quot;&gt;&lt;/TextBlock&gt;&#10;    &lt;/Grid&gt;&#10;&lt;/Page&gt;&#10;" />
+              <option name="updatedContent" value="&lt;Page x:Class=&quot;OSUI.Views.Pages.HelloPage&quot;&#10;      xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;&#10;      xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&#10;      xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;&#10;      xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;&#10;      xmlns:local=&quot;clr-namespace:OSUI.Views.Pages&quot;&#10;      xmlns:vm=&quot;clr-namespace:OSUI.ViewModels&quot;&#10;      xmlns:ext=&quot;clr-namespace:OSUI.Extensions&quot;&#10;      DataContext=&quot;{ext:DI {x:Type vm:HelloPageViewModel}}&quot;&#10;      mc:Ignorable=&quot;d&quot;&#10;      Title=&quot;HelloPage&quot; Height=&quot;450&quot; Width=&quot;800&quot;&gt;&#10;   &#10;    &lt;Grid&gt;&#10;        &lt;TextBlock Text=&quot;{Binding HelloText}&quot;&gt;&lt;/TextBlock&gt;&#10;    &lt;/Grid&gt;&#10;&lt;/Page&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
         <entry key="/LoginViewModel (snapshot).cs">
           <value>
             <PendingDiffInfo>
