@@ -10,6 +10,7 @@
         Title="Login System" 
         Width="450" 
         WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance vm:LoginViewModel}"
         DataContext="{ext:DI {x:Type vm:LoginViewModel}}">
     
 
@@ -19,8 +20,7 @@
             <!-- 标题 -->
             <TextBlock Margin="0,0,0,4"
                        HorizontalAlignment="Center"
-                       Text="欢迎登录"
-                        />
+                       Text="欢迎登录"/>
             <TextBlock Margin="0,0,0,28"
                        HorizontalAlignment="Center"
                        Text="OSUI"
@@ -30,7 +30,7 @@
             <TextBlock Margin="0,0,0,6" Text="用户名" FontWeight="Medium" />
             <TextBox Margin="0,0,0,14"
                      InputMethod.IsInputMethodEnabled="False"
-                     ToolTip="测试账号：admin（admin123）"
+                     ToolTip="测试账号"
                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
             <!-- 密码 -->
@@ -55,12 +55,10 @@
 
             <!-- 登录按钮 -->
             <Button Margin="0,8,0,0"
-                    Padding="0,10"
                     HorizontalAlignment="Stretch"
                     Content="登 录"
                     IsDefault="True"
-                    Command="{Binding LoginCommand}"
-                     />
+                    Command="{Binding LoginCommand}"/>
 
             <!-- 分隔线 -->
             <Grid Margin="0,16,0,12">
@@ -74,16 +72,14 @@
             </Grid>
 
             <!-- 访客模式按钮 -->
-            <Button Padding="0,8"
-                    Margin="0,0,0,8"
+            <Button Margin="0,0,0,8"
                     HorizontalAlignment="Stretch"
                     Content="👁 以访客身份浏览"
                     Command="{Binding EnterAsGuestCommand}"
                     ToolTip="访客" />
 
             <!-- 注册新号按钮 -->
-            <Button Padding="0,8"
-                    HorizontalAlignment="Stretch"
+            <Button HorizontalAlignment="Stretch"
                     Content="注册新账号"
                     Command="{Binding GoToRegisterCommand}" />
         </StackPanel>
