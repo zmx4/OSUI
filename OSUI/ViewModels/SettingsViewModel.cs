@@ -1,8 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HandyControl.Data;
+using HandyControl.Themes;
 using OSUI.Services;
 
 namespace OSUI.ViewModels;
@@ -13,32 +16,77 @@ public partial class SettingsViewModel : PageViewModel
     
     [ObservableProperty]
     private ObservableCollection<string>? _themeNames;
+
+    private string? _selectedTheme;
+    public string? SelectedTheme
+    {
+        get => _selectedTheme;
+        set
+        {
+            if (SetProperty(ref _selectedTheme, value) && value != null)
+            {
+                ApplyTheme(value);
+            }
+        }
+    }
+
+    [ObservableProperty]
+    private ObservableCollection<string>? _fontNames;
+
+    private string? _selectedFont;
+    public string? SelectedFont
+    {
+        get => _selectedFont;
+        set
+        {
+            if (SetProperty(ref _selectedFont, value) && value != null)
+            {
+                ApplyFont(value);
+            }
+        }
+    }
     
     public SettingsViewModel(IAuthService  authService)
     {
         _authService = authService;
-        var app = Application.Current;
-        ThemeNames = ["Default"];
+        ThemeNames = new ObservableCollection<string> { "Default", "Dark", "Violet" };
+        _selectedTheme = "Default";
+
+        var fonts = Fonts.SystemFontFamilies.Select(f => f.Source).OrderBy(f => f).ToList();
+        FontNames = new ObservableCollection<string>(fonts);
+        _selectedFont = fonts.FirstOrDefault();
     }
 
     #region 主题切换
-
-    private void OnSelectTheme(object sender, SelectionChangedEventArgs e)
-    {
-        if (e.AddedItems[0] is string theme)
-        {
-            ApplyTheme(theme);
-        }
-    }
     
     private void ApplyTheme(string themeName)
     {
+        if (System.Enum.TryParse(themeName, out SkinType skinType))
+        {
+            var dictionaries = Application.Current.Resources.MergedDictionaries;
+            var themeDict = dictionaries.FirstOrDefault(d => d is Theme);
+            if (themeDict is Theme hcTheme)
+            {
+                hcTheme.Skin = skinType;
+            }
+        }
+    }
+
+    #endregion
+
+    #region 字体切换
+
+    private void ApplyFont(string fontName)
+    {
         var app = Application.Current;
-        if(app == null)return;
-        var theme = app.Resources["ThemeName"] as string;
-        if(theme == null)return;
-        if (theme == themeName) return;
-        app.Resources["ThemeName"] = themeName;
+        if (app != null)
+        {
+            var fontFamily = new FontFamily(fontName);
+            foreach (Window window in app.Windows)
+            {
+                window.FontFamily = fontFamily;
+            }
+        }
     }
 
     #endregion
