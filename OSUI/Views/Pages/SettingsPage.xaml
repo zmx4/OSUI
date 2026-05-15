@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="OSUI.Views.Pages.SettingsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:OSUI.Views.Pages"
+             xmlns:viewModels="clr-namespace:OSUI.ViewModels"
+             xmlns:extensions="clr-namespace:OSUI.Extensions"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:SettingsViewModel}"
+             DataContext="{extensions:DI {x:Type viewModels:SettingsViewModel}}"
+             d:DesignHeight="300" d:DesignWidth="800">
+    <Grid Margin="20">
+            <StackPanel>
+                <!-- <TextBlock FontSize="24" Text="Settings Page"></TextBlock> -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" 
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Center"
+                               TextAlignment="Left">主题选择</TextBlock>
+                    <ComboBox Grid.Column="1"
+                        Width="150"
+                        HorizontalAlignment="Right"
+                        ItemsSource="{Binding ThemeNames}"></ComboBox>
+                </Grid>
+            </StackPanel>
+    </Grid>
+</UserControl>

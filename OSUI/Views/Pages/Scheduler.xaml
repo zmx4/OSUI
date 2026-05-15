@@ -41,15 +41,18 @@
                 <Button Grid.Column="1" Margin="10,0,0,0" Command="{Binding RunCommand}">运行</Button>
             </Grid>
         </Grid>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Processes}" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid Grid.Row="1" 
+                  ItemsSource="{Binding Processes}" 
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="进程ID" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="到达时间" Binding="{Binding ArrivalTime}" />
-                <DataGridTextColumn Header="服务时间" Binding="{Binding BurstTime}" />
-                <DataGridTextColumn Header="开始时间" Binding="{Binding StartTime}" IsReadOnly="True" />
-                <DataGridTextColumn Header="完成时间" Binding="{Binding CompletionTime}" IsReadOnly="True" />
-                <DataGridTextColumn Header="周转时间" Binding="{Binding TurnaroundTime}" IsReadOnly="True" />
-                <DataGridTextColumn Header="带权周转时间" Binding="{Binding WeightedTurnaroundTime, StringFormat={}{0:F2}}" IsReadOnly="True" />
+                <DataGridTextColumn Header="到达时间" Binding="{Binding ArrivalTime}" Width="*"/>
+                <DataGridTextColumn Header="服务时间" Binding="{Binding BurstTime}" Width="*"/>
+                <DataGridTextColumn Header="开始时间" Binding="{Binding StartTime}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="完成时间" Binding="{Binding CompletionTime}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="周转时间" Binding="{Binding TurnaroundTime}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="带权周转时间" Binding="{Binding WeightedTurnaroundTime, StringFormat={}{0:F2}}" IsReadOnly="True" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

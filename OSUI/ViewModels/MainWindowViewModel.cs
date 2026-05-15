@@ -22,4 +22,9 @@ public partial class MainWindowViewModel : ObservableObject
     {
         NavigationService.NavigateTo<SchedulerPageViewModel>();
     }
+    [RelayCommand]
+    private void NavigateToSettings()
+    {
+        NavigationService.NavigateTo<SettingsViewModel>();
+    }
 }

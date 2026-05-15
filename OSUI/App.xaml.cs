@@ -29,6 +29,7 @@ public partial class App : Application
             viewModelType => (PageViewModel)serviceProvider.GetRequiredService(viewModelType));
         services.AddSingleton<INavigationService, NavigationService>();
         services.AddSingleton<IAuthService, AuthService>();
+        services.AddSingleton<IPreferenceStorage,JsonPreferenceStorage>();
 
         // ViewModels
         services.AddTransient<LoginViewModel>();
@@ -36,6 +37,7 @@ public partial class App : Application
         services.AddTransient<HelloPageViewModel>();
         services.AddTransient<SchedulerPageViewModel>();
         services.AddTransient<MainWindowViewModel>();
+        services.AddTransient<SettingsViewModel>();
 
         // Windows
         services.AddTransient<LoginWindow>();
@@ -45,6 +47,7 @@ public partial class App : Application
         // Pages
         services.AddTransient<Views.Pages.HelloPage>();
         services.AddTransient<Views.Pages.Scheduler>();
+        services.AddTransient<Views.Pages.SettingsPage>();
     }
 
     protected override void OnStartup(StartupEventArgs e)

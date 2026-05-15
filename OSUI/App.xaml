@@ -12,13 +12,16 @@
         </ResourceDictionary.MergedDictionaries>
 
         <DataTemplate DataType="{x:Type vm:HelloPageViewModel}" 
-                      xmlns:vm="clr-namespace:OSUI.ViewModels" 
                       xmlns:views="clr-namespace:OSUI.Views.Pages">
             <views:HelloPage />
         </DataTemplate>
         
+        <DataTemplate DataType="{x:Type vm:SettingsViewModel}"
+                      xmlns:views="clr-namespace:OSUI.Views.Pages">
+            <views:SettingsPage />
+        </DataTemplate>
+        
         <DataTemplate DataType="{x:Type vm:SchedulerPageViewModel}"
-                      xmlns:vm="clr-namespace:OSUI.ViewModels" 
                       xmlns:views="clr-namespace:OSUI.Views.Pages">
             <views:Scheduler />
         </DataTemplate>

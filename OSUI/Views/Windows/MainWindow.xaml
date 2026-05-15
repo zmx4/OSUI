@@ -21,6 +21,7 @@
         </Grid.RowDefinitions>
         
         <Border Grid.Row="0"
+                Grid.ColumnSpan="2"
                 Padding="16,0"
                 Background="{DynamicResource NavigationViewContentBackground}"
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
@@ -41,9 +42,13 @@
                     <Button Margin="4,0,4,0"
                             Content="调度算法"
                             Style="{StaticResource HyperlinkButtonStyle}"
-                            Command="{Binding NavigateToSchedulerCommand}"
-                            />
+                            Command="{Binding NavigateToSchedulerCommand}"/>
                 </StackPanel>
+                <Button Grid.Column="2" 
+                        Margin="4,0,0,0"
+                        Content="Settings"
+                        Style="{StaticResource HyperlinkButtonStyle}"
+                        Command="{Binding NavigateToSettingsCommand}"/>
             </Grid>
         </Border>
         
