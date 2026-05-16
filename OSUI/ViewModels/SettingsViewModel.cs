@@ -108,9 +108,9 @@ public partial class SettingsViewModel : PageViewModel
     private void ShowAboutWindow()
     {
         var userName = _authService.CurrentUser?.Username;
-        MessageBox.Show($"OSUI - \n" +
+        MessageBox.Show($"OSUI - 操作系统算法模拟平台 \n" +
                         $"当前用户: {userName ?? "未登录"}" +
-                        $"\n版本: 1.0.0\n© 2024 OSUI Team", 
+                        $"\n版本: 1.0.0\n© 2024 TickZhong", 
                     "关于 OSUI");
     }
 
