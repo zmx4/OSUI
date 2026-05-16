@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -45,6 +44,8 @@ public partial class SettingsViewModel : PageViewModel
             }
         }
     }
+
+    public Action? OnOpenChangePasswordWindow { get; set; }
     
     public SettingsViewModel(IAuthService  authService)
     {
@@ -61,7 +62,7 @@ public partial class SettingsViewModel : PageViewModel
     
     private void ApplyTheme(string themeName)
     {
-        if (System.Enum.TryParse(themeName, out SkinType skinType))
+        if (Enum.TryParse(themeName, out SkinType skinType))
         {
             var dictionaries = Application.Current.Resources.MergedDictionaries;
             var themeDict = dictionaries.FirstOrDefault(d => d is Theme);
@@ -87,6 +88,16 @@ public partial class SettingsViewModel : PageViewModel
                 window.FontFamily = fontFamily;
             }
         }
+    }
+
+    #endregion
+
+    #region 修改密码窗口
+
+    [RelayCommand]
+    private void OpenChangePasswordWindow()
+    {
+        OnOpenChangePasswordWindow?.Invoke();
     }
 
     #endregion

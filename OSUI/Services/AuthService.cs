@@ -62,6 +62,53 @@ public sealed class AuthService : IAuthService
     }
 
     /// <summary>
+    /// 修改当前登录用户的密码
+    /// </summary>
+    public bool ChangePassword(string currentPassword, string newPassword, out string errorMessage)
+    {
+        errorMessage = string.Empty;
+
+        if (CurrentUser is null)
+        {
+            errorMessage = "请先登录。";
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(currentPassword) || string.IsNullOrWhiteSpace(newPassword))
+        {
+            errorMessage = "密码不能为空。";
+            return false;
+        }
+
+        var currentHash = PasswordService.ComputeHash(currentPassword);
+        if (!string.Equals(CurrentUser.PasswordHash, currentHash, StringComparison.Ordinal))
+        {
+            errorMessage = "原密码错误。";
+            return false;
+        }
+
+        var newHash = PasswordService.ComputeHash(newPassword);
+        if (string.Equals(CurrentUser.PasswordHash, newHash, StringComparison.Ordinal))
+        {
+            errorMessage = "新密码不能与原密码相同。";
+            return false;
+        }
+
+        var users = DataService.LoadUsers();
+        var userIndex = users.FindIndex(u => u.Id == CurrentUser.Id);
+        if (userIndex < 0)
+        {
+            errorMessage = "用户不存在。";
+            return false;
+        }
+
+        users[userIndex].PasswordHash = newHash;
+        DataService.SaveUsers(users);
+        CurrentUser.PasswordHash = newHash;
+        return true;
+    }
+
+    /// <summary>
     /// 通知 AuthService 当前用户的角色已在外部被修改（例如 Admin 面板改角色），
     /// 触发一次 <see cref="NotifyRoleChanged"/> 广播以刷新全局 UI
     /// </summary>

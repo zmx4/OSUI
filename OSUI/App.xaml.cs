@@ -38,11 +38,13 @@ public partial class App : Application
         services.AddTransient<SchedulerPageViewModel>();
         services.AddTransient<MainWindowViewModel>();
         services.AddTransient<SettingsViewModel>();
+        services.AddTransient<ChangePasswordViewModel>();
 
         // Windows
         services.AddTransient<LoginWindow>();
         services.AddTransient<RegisterWindow>();
         services.AddTransient<MainWindow>();
+        services.AddTransient<ChangePasswordWindow>();
         
         // Pages
         services.AddTransient<Views.Pages.HelloPage>();
