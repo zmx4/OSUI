@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:OSUI.Views.Pages"
              mc:Ignorable="d"
+             xmlns:conv="clr-namespace:OSUI.Converters"
              xmlns:vm="clr-namespace:OSUI.ViewModels"
              d:DataContext="{d:DesignInstance vm:SchedulerPageViewModel}"
              d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <conv:TimeInputConverter x:Key="TimeInputConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -25,12 +29,19 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0"
                     Text="算法选择" 
                     FontSize="24" FontWeight="Bold" Margin="10"/>
                 <ComboBox Grid.Column="1"
                     Width="200" Margin="10" ItemsSource="{Binding Algorithms}" SelectedItem="{Binding SelectedAlgorithm}"/>
+                <TextBlock Grid.Column="2"
+                    Text="时间类型"
+                    FontSize="24" FontWeight="Bold" Margin="30,10,10,10"/>
+                <ComboBox Grid.Column="3"
+                    Width="140" Margin="10" ItemsSource="{Binding TimeInputModes}" SelectedItem="{Binding SelectedTimeInputMode}"/>
             </Grid>
             <Grid Grid.Column="1" HorizontalAlignment="Stretch" >
                 <Grid.ColumnDefinitions>
@@ -47,11 +58,100 @@
                   CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="进程ID" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="到达时间" Binding="{Binding ArrivalTime}" Width="*"/>
-                <DataGridTextColumn Header="服务时间" Binding="{Binding BurstTime}" Width="*"/>
-                <DataGridTextColumn Header="开始时间" Binding="{Binding StartTime}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="完成时间" Binding="{Binding CompletionTime}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="周转时间" Binding="{Binding TurnaroundTime}" IsReadOnly="True" Width="*"/>
+                <DataGridTemplateColumn Header="到达时间" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource TimeInputConverter}">
+                                        <Binding Path="ArrivalTime" />
+                                        <Binding Path="DataContext.SelectedTimeInputMode" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <TextBox>
+                                <TextBox.Text>
+                                    <MultiBinding Converter="{StaticResource TimeInputConverter}" Mode="TwoWay">
+                                        <Binding Path="ArrivalTime" Mode="TwoWay" />
+                                        <Binding Path="DataContext.SelectedTimeInputMode" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                    </MultiBinding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="服务时间" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource TimeInputConverter}">
+                                        <Binding Path="BurstTime" />
+                                        <Binding Path="DataContext.SelectedTimeInputMode" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <TextBox>
+                                <TextBox.Text>
+                                    <MultiBinding Converter="{StaticResource TimeInputConverter}" Mode="TwoWay">
+                                        <Binding Path="BurstTime" Mode="TwoWay" />
+                                        <Binding Path="DataContext.SelectedTimeInputMode" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                    </MultiBinding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="开始时间" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource TimeInputConverter}">
+                                        <Binding Path="StartTime" />
+                                        <Binding Path="DataContext.SelectedTimeInputMode" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="完成时间" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource TimeInputConverter}">
+                                        <Binding Path="CompletionTime" />
+                                        <Binding Path="DataContext.SelectedTimeInputMode" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="周转时间" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource TimeInputConverter}">
+                                        <Binding Path="TurnaroundTime" />
+                                        <Binding Path="DataContext.SelectedTimeInputMode" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="带权周转时间" Binding="{Binding WeightedTurnaroundTime, StringFormat={}{0:F2}}" IsReadOnly="True" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

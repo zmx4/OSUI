@@ -14,8 +14,13 @@ public partial class SchedulerPageViewModel : PageViewModel
 
     public string[] Algorithms { get; } = { "FCFS", "SJFS" };
 
+    public string[] TimeInputModes { get; } = { "整数", "HH:MM" };
+
     [ObservableProperty]
     private string _selectedAlgorithm = "FCFS";
+
+    [ObservableProperty]
+    private string _selectedTimeInputMode = "整数";
 
     [RelayCommand]
     private void AddProcess()
