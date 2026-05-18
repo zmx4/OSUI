@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:OSUI.ViewModels"
         xmlns:ext="clr-namespace:OSUI.Extensions"
         mc:Ignorable="d"
-        Title="Login System" 
+        Title="{DynamicResource Login.WindowTitle}" 
         Width="450" 
         WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance vm:LoginViewModel}"
@@ -20,21 +20,21 @@
             <!-- 标题 -->
             <TextBlock Margin="0,0,0,4"
                        HorizontalAlignment="Center"
-                       Text="欢迎登录"/>
+                       Text="{DynamicResource Login.Welcome}"/>
             <TextBlock Margin="0,0,0,28"
                        HorizontalAlignment="Center"
-                       Text="OSUI"
+                       Text="{DynamicResource Common.AppName}"
                        Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
             <!-- 用户名 -->
-            <TextBlock Margin="0,0,0,6" Text="用户名" FontWeight="Medium" />
+            <TextBlock Margin="0,0,0,6" Text="{DynamicResource Login.Username}" FontWeight="Medium" />
             <TextBox Margin="0,0,0,14"
                      InputMethod.IsInputMethodEnabled="False"
-                     ToolTip="测试账号"
+                     ToolTip="{DynamicResource Login.TestAccountTooltip}"
                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
             <!-- 密码 -->
-            <TextBlock Margin="0,0,0,6" Text="密码" FontWeight="Medium" />
+            <TextBlock Margin="0,0,0,6" Text="{DynamicResource Login.Password}" FontWeight="Medium" />
             <PasswordBox x:Name="PasswordBox" Margin="0,0,0,8" PasswordChanged="PasswordBox_PasswordChanged" />
 
             <!-- 错误提示 -->
@@ -56,14 +56,14 @@
             <!-- 登录按钮 -->
             <Button Margin="0,8,0,0"
                     HorizontalAlignment="Stretch"
-                    Content="登 录"
+                    Content="{DynamicResource Login.Button.Login}"
                     IsDefault="True"
                     Command="{Binding LoginCommand}"/>
 
             <!-- 分隔线 -->
             <Grid Margin="0,16,0,12">
                 <Separator />
-                <TextBlock Text="或"
+                <TextBlock Text="{DynamicResource Common.Or}"
                            HorizontalAlignment="Center"
                            Padding="8,0"
                            Background="{DynamicResource ApplicationPageBackgroundThemeBrush}"
@@ -74,13 +74,13 @@
             <!-- 访客模式按钮 -->
             <Button Margin="0,0,0,8"
                     HorizontalAlignment="Stretch"
-                    Content="👁 以访客身份浏览"
+                    Content="{DynamicResource Login.Button.Guest}"
                     Command="{Binding EnterAsGuestCommand}"
-                    ToolTip="访客" />
+                    ToolTip="{DynamicResource Login.GuestTooltip}" />
 
             <!-- 注册新号按钮 -->
             <Button HorizontalAlignment="Stretch"
-                    Content="注册新账号"
+                    Content="{DynamicResource Login.Button.Register}"
                     Command="{Binding GoToRegisterCommand}" />
         </StackPanel>
     </Border>

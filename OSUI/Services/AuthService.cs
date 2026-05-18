@@ -70,27 +70,27 @@ public sealed class AuthService : IAuthService
 
         if (CurrentUser is null)
         {
-            errorMessage = "请先登录。";
+            errorMessage = LocalizationService.Instance.GetString("Auth.Error.LoginRequired");
             return false;
         }
 
         if (string.IsNullOrWhiteSpace(currentPassword) || string.IsNullOrWhiteSpace(newPassword))
         {
-            errorMessage = "密码不能为空。";
+            errorMessage = LocalizationService.Instance.GetString("Auth.Error.PasswordEmpty");
             return false;
         }
 
         var currentHash = PasswordService.ComputeHash(currentPassword);
         if (!string.Equals(CurrentUser.PasswordHash, currentHash, StringComparison.Ordinal))
         {
-            errorMessage = "原密码错误。";
+            errorMessage = LocalizationService.Instance.GetString("Auth.Error.CurrentPasswordIncorrect");
             return false;
         }
 
         var newHash = PasswordService.ComputeHash(newPassword);
         if (string.Equals(CurrentUser.PasswordHash, newHash, StringComparison.Ordinal))
         {
-            errorMessage = "新密码不能与原密码相同。";
+            errorMessage = LocalizationService.Instance.GetString("Auth.Error.NewPasswordSameAsOld");
             return false;
         }
 
@@ -98,7 +98,7 @@ public sealed class AuthService : IAuthService
         var userIndex = users.FindIndex(u => u.Id == CurrentUser.Id);
         if (userIndex < 0)
         {
-            errorMessage = "用户不存在。";
+            errorMessage = LocalizationService.Instance.GetString("Auth.Error.UserNotFound");
             return false;
         }
 

@@ -33,23 +33,28 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0"
-                    Text="算法选择" 
+                    Text="{DynamicResource Scheduler.AlgorithmSelection}" 
                     FontSize="24" FontWeight="Bold" Margin="10"/>
                 <ComboBox Grid.Column="1"
                     Width="200" Margin="10" ItemsSource="{Binding Algorithms}" SelectedItem="{Binding SelectedAlgorithm}"/>
                 <TextBlock Grid.Column="2"
-                    Text="时间类型"
+                    Text="{DynamicResource Scheduler.TimeType}"
                     FontSize="24" FontWeight="Bold" Margin="30,10,10,10"/>
                 <ComboBox Grid.Column="3"
-                    Width="140" Margin="10" ItemsSource="{Binding TimeInputModes}" SelectedItem="{Binding SelectedTimeInputMode}"/>
+                    Width="140"
+                    Margin="10"
+                    ItemsSource="{Binding TimeInputModes}"
+                    DisplayMemberPath="DisplayName"
+                    SelectedValuePath="Mode"
+                    SelectedValue="{Binding SelectedTimeInputMode}"/>
             </Grid>
             <Grid Grid.Column="1" HorizontalAlignment="Stretch" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Command="{Binding AddProcessCommand}">添加</Button>
-                <Button Grid.Column="1" Margin="10,0,0,0" Command="{Binding RunCommand}">运行</Button>
+                <Button Grid.Column="0" Command="{Binding AddProcessCommand}" Content="{DynamicResource Scheduler.Button.Add}" />
+                <Button Grid.Column="1" Margin="10,0,0,0" Command="{Binding RunCommand}" Content="{DynamicResource Scheduler.Button.Run}" />
             </Grid>
         </Grid>
         <DataGrid Grid.Row="1" 
@@ -57,8 +62,8 @@
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="进程ID" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTemplateColumn Header="到达时间" Width="*">
+                <DataGridTextColumn Header="{DynamicResource Scheduler.Column.ProcessId}" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTemplateColumn Header="{DynamicResource Scheduler.Column.ArrivalTime}" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -84,7 +89,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="服务时间" Width="*">
+                <DataGridTemplateColumn Header="{DynamicResource Scheduler.Column.BurstTime}" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -110,7 +115,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="开始时间" IsReadOnly="True" Width="*">
+                <DataGridTemplateColumn Header="{DynamicResource Scheduler.Column.StartTime}" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -124,7 +129,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="完成时间" IsReadOnly="True" Width="*">
+                <DataGridTemplateColumn Header="{DynamicResource Scheduler.Column.CompletionTime}" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -138,7 +143,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="周转时间" IsReadOnly="True" Width="*">
+                <DataGridTemplateColumn Header="{DynamicResource Scheduler.Column.TurnaroundTime}" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -152,7 +157,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="带权周转时间" Binding="{Binding WeightedTurnaroundTime, StringFormat={}{0:F2}}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="{DynamicResource Scheduler.Column.WeightedTurnaroundTime}" Binding="{Binding WeightedTurnaroundTime, StringFormat={}{0:F2}}" IsReadOnly="True" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

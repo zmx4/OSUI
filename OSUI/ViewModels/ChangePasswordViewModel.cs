@@ -48,7 +48,7 @@ public partial class ChangePasswordViewModel : ObservableObject
         if (!string.Equals(NewPassword, ConfirmNewPassword, StringComparison.Ordinal))
         {
             HasError = true;
-            ErrorMessage = "两次输入的新密码不一致。";
+            ErrorMessage = LocalizationService.Instance.GetString("ChangePassword.Error.PasswordMismatch");
             return;
         }
 
@@ -63,7 +63,7 @@ public partial class ChangePasswordViewModel : ObservableObject
 
         HasError = true;
         ErrorMessage = string.IsNullOrWhiteSpace(errorMessage)
-            ? "修改失败，请稍后重试。"
+            ? LocalizationService.Instance.GetString("ChangePassword.Error.UnknownFailure")
             : errorMessage;
     }
 

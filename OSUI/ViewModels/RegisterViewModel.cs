@@ -49,7 +49,7 @@ namespace OSUI.ViewModels
             if (Password != ConfirmPassword)
             {
                 HasError = true;
-                ErrorMessage = "两次输入的密码不一致。";
+                ErrorMessage = LocalizationService.Instance.GetString("Register.Error.PasswordMismatch");
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace OSUI.ViewModels
             else
             {
                 HasError = true;
-                ErrorMessage = "用户名已存在，请重试。";
+                ErrorMessage = LocalizationService.Instance.GetString("Register.Error.UsernameExists");
             }
         }
 

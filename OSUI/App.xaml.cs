@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using OSUI.Data;
 using OSUI.Services;
 using OSUI.ViewModels;
 using OSUI.Views.Windows;
@@ -55,6 +56,10 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
+
+        var preferenceStorage = ServiceProvider.GetRequiredService<IPreferenceStorage>();
+        var languageCode = preferenceStorage.Get(PreferenceKeys.Language, LocalizationService.ChineseLanguageCode);
+        LocalizationService.Instance.ApplyLanguage(languageCode);
 
         // 首屏显示登录窗口
         var loginWindow = ServiceProvider.GetRequiredService<LoginWindow>();

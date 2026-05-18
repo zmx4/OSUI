@@ -9,7 +9,7 @@ public partial class MainWindowViewModel : ObservableObject
     public INavigationService NavigationService { get; }
     
     [ObservableProperty]
-    public partial string CurrentUsername { get; private set; } = "访客";
+    public partial string CurrentUsername { get; private set; } = LocalizationService.Instance.GetString("Common.Guest");
     
     public  MainWindowViewModel(INavigationService navigationService)
     {

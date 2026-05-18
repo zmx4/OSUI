@@ -53,7 +53,7 @@ namespace OSUI.ViewModels
             else
             {
                 HasError = true;
-                ErrorMessage = "用户名或密码错误，请重试。";
+                ErrorMessage = LocalizationService.Instance.GetString("Login.Error.InvalidCredentials");
             }
         }
     }

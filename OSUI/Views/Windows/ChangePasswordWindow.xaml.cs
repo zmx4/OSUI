@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using OSUI.Services;
 using OSUI.ViewModels;
 
 namespace OSUI.Views.Windows;
@@ -33,7 +34,11 @@ public partial class ChangePasswordWindow : Window
 
         vm.OnPasswordChanged = () =>
         {
-            MessageBox.Show("密码已更新。", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(
+                LocalizationService.Instance.GetString("ChangePassword.Success"),
+                LocalizationService.Instance.GetString("Common.TipTitle"),
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
             Close();
         };
 

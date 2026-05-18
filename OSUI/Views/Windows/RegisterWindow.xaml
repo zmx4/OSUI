@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:OSUI.ViewModels"
         xmlns:ext="clr-namespace:OSUI.Extensions"
-        Title="Register System" 
+        Title="{DynamicResource Register.WindowTitle}" 
         Width="450" 
         Height="550"
         WindowStartupLocation="CenterScreen"
@@ -20,26 +20,26 @@
                 <!-- 标题 -->
                 <TextBlock Margin="0,0,0,4"
                            HorizontalAlignment="Center"
-                           Text="用户注册"
+                           Text="{DynamicResource Register.Header}"
                            FontSize="20"
                            FontWeight="SemiBold" />
                 <TextBlock Margin="0,0,0,28"
                            HorizontalAlignment="Center"
-                           Text="OSUI"
+                           Text="{DynamicResource Common.AppName}"
                            Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
                 <!-- 用户名 -->
-                <TextBlock Margin="0,0,0,6" Text="用户名" FontWeight="Medium" />
+                <TextBlock Margin="0,0,0,6" Text="{DynamicResource Register.Username}" FontWeight="Medium" />
                 <TextBox Margin="0,0,0,14"
                          InputMethod.IsInputMethodEnabled="False"
                          Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
                 <!-- 密码 -->
-                <TextBlock Margin="0,0,0,6" Text="密码" FontWeight="Medium" />
+                <TextBlock Margin="0,0,0,6" Text="{DynamicResource Register.Password}" FontWeight="Medium" />
                 <PasswordBox x:Name="PasswordBox" Margin="0,0,0,14" PasswordChanged="PasswordBox_PasswordChanged" />
 
                 <!-- 确认密码 -->
-                <TextBlock Margin="0,0,0,6" Text="确认密码" FontWeight="Medium" />
+                <TextBlock Margin="0,0,0,6" Text="{DynamicResource Register.ConfirmPassword}" FontWeight="Medium" />
                 <PasswordBox x:Name="ConfirmPasswordBox" Margin="0,0,0,8" PasswordChanged="ConfirmPasswordBox_PasswordChanged" />
 
                 <!-- 错误提示 -->
@@ -62,14 +62,14 @@
                 <Button Margin="0,8,0,0"
                         Padding="0,10"
                         HorizontalAlignment="Stretch"
-                        Content="注 册"
+                        Content="{DynamicResource Register.Button.Register}"
                         IsDefault="True"
                         Command="{Binding RegisterCommand}" />
 
                 <!-- 分隔线 -->
                 <Grid Margin="0,16,0,12">
                     <Separator />
-                    <TextBlock Text="或"
+                    <TextBlock Text="{DynamicResource Common.Or}"
                                HorizontalAlignment="Center"
                                Padding="8,0"
                                Background="{DynamicResource ApplicationPageBackgroundThemeBrush}"
@@ -80,7 +80,7 @@
                 <!-- 取消按钮 -->
                 <Button Padding="0,8"
                         HorizontalAlignment="Stretch"
-                        Content="返回登录"
+                        Content="{DynamicResource Register.Button.BackToLogin}"
                         Command="{Binding CancelCommand}" />
             </StackPanel>
         </Border>

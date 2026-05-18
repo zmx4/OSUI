@@ -9,6 +9,7 @@
         <ResourceDictionary.MergedDictionaries>
             <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
             <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            <ResourceDictionary Source="pack://application:,,,/OSUI;component/Resources/Localization/Strings.zh-CN.xaml"/>
         </ResourceDictionary.MergedDictionaries>
 
         <DataTemplate DataType="{x:Type vm:HelloPageViewModel}" 

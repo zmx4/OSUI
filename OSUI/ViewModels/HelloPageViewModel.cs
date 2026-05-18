@@ -12,7 +12,7 @@ public partial class HelloPageViewModel : PageViewModel
     public HelloPageViewModel(IAuthService authService)
     {
         PageNames = ApplicationPageNames.HelloPage;
-        var username = authService.CurrentUser?.Username ?? "访客";
-        _helloText = $"Hello, {username}!";
+        var username = authService.CurrentUser?.Username ?? LocalizationService.Instance.GetString("Common.Guest");
+        _helloText = LocalizationService.Instance.Format("Hello.GreetingFormat", username);
     }
 }

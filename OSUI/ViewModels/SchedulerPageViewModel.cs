@@ -9,18 +9,27 @@ namespace OSUI.ViewModels;
 
 public partial class SchedulerPageViewModel : PageViewModel
 {
+    public sealed record TimeInputModeOption(string Mode, string DisplayName);
+
+    private const string MinutesMode = "MINUTES";
+    private const string HourMinuteMode = "HH:MM";
+
     [ObservableProperty]
     private ObservableCollection<Process> _processes = new();
 
     public string[] Algorithms { get; } = { "FCFS", "SJFS" };
 
-    public string[] TimeInputModes { get; } = { "整数", "HH:MM" };
+    public TimeInputModeOption[] TimeInputModes { get; } =
+    [
+        new(MinutesMode, LocalizationService.Instance.GetString("Scheduler.TimeMode.Minutes")),
+        new(HourMinuteMode, LocalizationService.Instance.GetString("Scheduler.TimeMode.Clock"))
+    ];
 
     [ObservableProperty]
     private string _selectedAlgorithm = "FCFS";
 
     [ObservableProperty]
-    private string _selectedTimeInputMode = "整数";
+    private string _selectedTimeInputMode = MinutesMode;
 
     [RelayCommand]
     private void AddProcess()

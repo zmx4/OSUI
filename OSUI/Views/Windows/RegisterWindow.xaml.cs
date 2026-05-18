@@ -1,6 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Extensions.DependencyInjection;
+using OSUI.Services;
 using OSUI.ViewModels;
 
 namespace OSUI.Views.Windows;
@@ -16,7 +17,11 @@ public partial class RegisterWindow
             vm.OnRegisterSuccess = () =>
             {
                 // 注册成功，提示并返回登录页面
-                MessageBox.Show("注册成功！请登录。", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(
+                    LocalizationService.Instance.GetString("Register.Success"),
+                    LocalizationService.Instance.GetString("Common.TipTitle"),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
                 var login = App.ServiceProvider.GetRequiredService<LoginWindow>();
                 login.Show();
                 Close();

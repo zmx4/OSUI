@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:OSUI.ViewModels"
         xmlns:ext="clr-namespace:OSUI.Extensions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Title="{DynamicResource Main.WindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         DataContext="{ext:DI {x:Type vm:MainWindowViewModel}}">
     <Grid>
@@ -35,18 +35,18 @@
                 <StackPanel Grid.Column="0" 
                             VerticalAlignment="Center"
                             Orientation="Horizontal">
-                    <TextBlock Text="OSUI" 
+                    <TextBlock Text="{DynamicResource Common.AppName}" 
                                FontSize="18" 
                                FontWeight="Medium"
                                VerticalAlignment="Center"/>
                     <Button Margin="4,0,4,0"
-                            Content="调度算法"
+                            Content="{DynamicResource Main.Nav.Scheduler}"
                             Style="{StaticResource HyperlinkButtonStyle}"
                             Command="{Binding NavigateToSchedulerCommand}"/>
                 </StackPanel>
                 <Button Grid.Column="2" 
                         Margin="4,0,0,0"
-                        Content="Settings"
+                        Content="{DynamicResource Main.Nav.Settings}"
                         Style="{StaticResource HyperlinkButtonStyle}"
                         Command="{Binding NavigateToSettingsCommand}"/>
             </Grid>
