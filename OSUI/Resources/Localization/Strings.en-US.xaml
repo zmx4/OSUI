@@ -51,7 +51,7 @@
     <sys:String x:Key="Settings.Language.ZhCN" xmlns:sys="clr-namespace:System;assembly=mscorlib">Chinese (Simplified)</sys:String>
     <sys:String x:Key="Settings.Language.EnUS" xmlns:sys="clr-namespace:System;assembly=mscorlib">English</sys:String>
     <sys:String x:Key="Settings.About.Title" xmlns:sys="clr-namespace:System;assembly=mscorlib">About OSUI</sys:String>
-    <sys:String x:Key="Settings.About.Text" xmlns:sys="clr-namespace:System;assembly=mscorlib">OSUI - Operating System Algorithm Simulation Platform
+    <sys:String x:Key="Settings.About.Text" xmlns:sys="clr-namespace:System;assembly=mscorlib" xml:space="preserve">OSUI - Operating System Algorithm Simulation Platform
 Current user: {0}
 Version: 1.0.0
 © 2024 TickZhong</sys:String>
