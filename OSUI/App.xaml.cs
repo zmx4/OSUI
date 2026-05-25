@@ -37,6 +37,7 @@ public partial class App : Application
         services.AddTransient<RegisterViewModel>();
         services.AddTransient<HelloPageViewModel>();
         services.AddTransient<SchedulerPageViewModel>();
+        services.AddTransient<BankerAlgorithmPageViewModel>();
         services.AddTransient<MainWindowViewModel>();
         services.AddTransient<SettingsViewModel>();
         services.AddTransient<ChangePasswordViewModel>();
@@ -50,6 +51,7 @@ public partial class App : Application
         // Pages
         services.AddTransient<Views.Pages.HelloPage>();
         services.AddTransient<Views.Pages.Scheduler>();
+        services.AddTransient<Views.Pages.BankerAlgorithmPage>();
         services.AddTransient<Views.Pages.SettingsPage>();
     }
 

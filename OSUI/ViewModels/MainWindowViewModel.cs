@@ -22,6 +22,13 @@ public partial class MainWindowViewModel : ObservableObject
     {
         NavigationService.NavigateTo<SchedulerPageViewModel>();
     }
+
+    [RelayCommand]
+    private void NavigateToBankerAlgorithm()
+    {
+        NavigationService.NavigateTo<BankerAlgorithmPageViewModel>();
+    }
+
     [RelayCommand]
     private void NavigateToSettings()
     {

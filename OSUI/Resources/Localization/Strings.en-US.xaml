@@ -41,6 +41,7 @@
 
     <sys:String x:Key="Main.WindowTitle" xmlns:sys="clr-namespace:System;assembly=mscorlib">OSUI</sys:String>
     <sys:String x:Key="Main.Nav.Scheduler" xmlns:sys="clr-namespace:System;assembly=mscorlib">Scheduling</sys:String>
+    <sys:String x:Key="Main.Nav.BankerAlgorithm" xmlns:sys="clr-namespace:System;assembly=mscorlib">Banker's Algorithm</sys:String>
     <sys:String x:Key="Main.Nav.Settings" xmlns:sys="clr-namespace:System;assembly=mscorlib">Settings</sys:String>
 
     <sys:String x:Key="Settings.ThemeSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">Theme</sys:String>
@@ -69,6 +70,16 @@ Version: 1.0.0
     <sys:String x:Key="Scheduler.Column.WeightedTurnaroundTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">Weighted Turnaround</sys:String>
     <sys:String x:Key="Scheduler.TimeMode.Minutes" xmlns:sys="clr-namespace:System;assembly=mscorlib">Minutes</sys:String>
     <sys:String x:Key="Scheduler.TimeMode.Clock" xmlns:sys="clr-namespace:System;assembly=mscorlib">HH:MM</sys:String>
+
+    <sys:String x:Key="Banker.Label.ProcessCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">Processes</sys:String>
+    <sys:String x:Key="Banker.Label.ResourceTypeCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">Resource Types</sys:String>
+    <sys:String x:Key="Banker.Button.Apply" xmlns:sys="clr-namespace:System;assembly=mscorlib">Apply</sys:String>
+    <sys:String x:Key="Banker.Table.Allocation" xmlns:sys="clr-namespace:System;assembly=mscorlib">Allocation</sys:String>
+    <sys:String x:Key="Banker.Table.Max" xmlns:sys="clr-namespace:System;assembly=mscorlib">Max</sys:String>
+    <sys:String x:Key="Banker.Table.Need" xmlns:sys="clr-namespace:System;assembly=mscorlib">Need</sys:String>
+    <sys:String x:Key="Banker.Table.Available" xmlns:sys="clr-namespace:System;assembly=mscorlib">Initial Available</sys:String>
+    <sys:String x:Key="Banker.Column.ProcessId" xmlns:sys="clr-namespace:System;assembly=mscorlib">Process ID</sys:String>
+    <sys:String x:Key="Banker.Column.Resource" xmlns:sys="clr-namespace:System;assembly=mscorlib">Resource {0}</sys:String>
 
     <sys:String x:Key="Hello.GreetingFormat" xmlns:sys="clr-namespace:System;assembly=mscorlib">Hello, {0}!</sys:String>
 

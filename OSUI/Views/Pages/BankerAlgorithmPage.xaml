@@ -4,9 +4,105 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:OSUI.Views.Pages"
+             xmlns:vm="clr-namespace:OSUI.ViewModels"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="800">
+             d:DataContext="{d:DesignInstance vm:BankerAlgorithmPageViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                       Text="{DynamicResource Banker.Label.ProcessCount}"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="0,0,8,0"
+                       VerticalAlignment="Center" />
+            <TextBox Grid.Column="1"
+                     Width="80"
+                     VerticalAlignment="Center"
+                     Margin="0,0,16,0"
+                     Text="{Binding ProcessCountInput, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Column="2"
+                       Text="{DynamicResource Banker.Label.ResourceTypeCount}"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="0,0,8,0"
+                       VerticalAlignment="Center" />
+            <TextBox Grid.Column="3"
+                     Width="80"
+                     VerticalAlignment="Center"
+                     Margin="0,0,16,0"
+                     Text="{Binding ResourceTypeCountInput, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Grid.Column="4"
+                    Content="{DynamicResource Banker.Button.Apply}"
+                    Command="{Binding ApplySizeCommand}" />
+        </Grid>
+
+        <StackPanel Grid.Row="1" Margin="10,0,10,10">
+            <TextBlock Text="{DynamicResource Banker.Table.Available}"
+                       FontSize="18"
+                       FontWeight="SemiBold"
+                       Margin="0,0,0,6" />
+            <DataGrid x:Name="AvailableGrid"
+                      ItemsSource="{Binding AvailableResources}"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      HeadersVisibility="Column"
+                      RowHeaderWidth="0" />
+        </StackPanel>
+
+        <Grid Grid.Row="2" Margin="10,0,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0,0,6,0">
+                <TextBlock Text="{DynamicResource Banker.Table.Allocation}"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,6" />
+                <DataGrid x:Name="AllocationGrid"
+                          ItemsSource="{Binding Processes}"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          HeadersVisibility="Column" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="6,0,6,0">
+                <TextBlock Text="{DynamicResource Banker.Table.Max}"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,6" />
+                <DataGrid x:Name="MaxGrid"
+                          ItemsSource="{Binding Processes}"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          HeadersVisibility="Column" />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Margin="6,0,0,0">
+                <TextBlock Text="{DynamicResource Banker.Table.Need}"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,6" />
+                <DataGrid x:Name="NeedGrid"
+                          ItemsSource="{Binding Processes}"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          HeadersVisibility="Column"
+                          IsReadOnly="True" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

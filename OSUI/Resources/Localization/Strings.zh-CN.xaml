@@ -41,6 +41,7 @@
 
     <sys:String x:Key="Main.WindowTitle" xmlns:sys="clr-namespace:System;assembly=mscorlib">OSUI</sys:String>
     <sys:String x:Key="Main.Nav.Scheduler" xmlns:sys="clr-namespace:System;assembly=mscorlib">调度算法</sys:String>
+    <sys:String x:Key="Main.Nav.BankerAlgorithm" xmlns:sys="clr-namespace:System;assembly=mscorlib">银行家算法</sys:String>
     <sys:String x:Key="Main.Nav.Settings" xmlns:sys="clr-namespace:System;assembly=mscorlib">设置</sys:String>
 
     <sys:String x:Key="Settings.ThemeSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">主题选择</sys:String>
@@ -68,6 +69,16 @@
     <sys:String x:Key="Scheduler.Column.WeightedTurnaroundTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">带权周转时间</sys:String>
     <sys:String x:Key="Scheduler.TimeMode.Minutes" xmlns:sys="clr-namespace:System;assembly=mscorlib">整数</sys:String>
     <sys:String x:Key="Scheduler.TimeMode.Clock" xmlns:sys="clr-namespace:System;assembly=mscorlib">HH:MM</sys:String>
+
+    <sys:String x:Key="Banker.Label.ProcessCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">进程数</sys:String>
+    <sys:String x:Key="Banker.Label.ResourceTypeCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">资源种类数</sys:String>
+    <sys:String x:Key="Banker.Button.Apply" xmlns:sys="clr-namespace:System;assembly=mscorlib">应用</sys:String>
+    <sys:String x:Key="Banker.Table.Allocation" xmlns:sys="clr-namespace:System;assembly=mscorlib">已分配</sys:String>
+    <sys:String x:Key="Banker.Table.Max" xmlns:sys="clr-namespace:System;assembly=mscorlib">最大需求</sys:String>
+    <sys:String x:Key="Banker.Table.Need" xmlns:sys="clr-namespace:System;assembly=mscorlib">需求</sys:String>
+    <sys:String x:Key="Banker.Table.Available" xmlns:sys="clr-namespace:System;assembly=mscorlib">初始可用资源</sys:String>
+    <sys:String x:Key="Banker.Column.ProcessId" xmlns:sys="clr-namespace:System;assembly=mscorlib">进程ID</sys:String>
+    <sys:String x:Key="Banker.Column.Resource" xmlns:sys="clr-namespace:System;assembly=mscorlib">资源{0}</sys:String>
 
     <sys:String x:Key="Hello.GreetingFormat" xmlns:sys="clr-namespace:System;assembly=mscorlib">你好，{0}！</sys:String>
 

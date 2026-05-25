@@ -43,6 +43,10 @@
                             Content="{DynamicResource Main.Nav.Scheduler}"
                             Style="{StaticResource HyperlinkButtonStyle}"
                             Command="{Binding NavigateToSchedulerCommand}"/>
+                    <Button Margin="4,0,4,0"
+                            Content="{DynamicResource Main.Nav.BankerAlgorithm}"
+                            Style="{StaticResource HyperlinkButtonStyle}"
+                            Command="{Binding NavigateToBankerAlgorithmCommand}"/>
                 </StackPanel>
                 <Button Grid.Column="2" 
                         Margin="4,0,0,0"
