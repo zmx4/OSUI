@@ -88,13 +88,15 @@ public partial class BankerAlgorithmPage : UserControl
         var allocationLabel = LocalizationService.Instance.GetString("Banker.Table.Allocation");
         var maxLabel = LocalizationService.Instance.GetString("Banker.Table.Max");
         var needLabel = LocalizationService.Instance.GetString("Banker.Table.Need");
+        var resourceSuffix = BuildResourceSuffix(resourceCount);
+
+        ProcessGrid.Columns.Add(CreateVectorColumn($"{maxLabel}{resourceSuffix}", "MaxText", false));
+        ProcessGrid.Columns.Add(CreateVectorColumn($"{allocationLabel}{resourceSuffix}", "AllocationText", false));
+        ProcessGrid.Columns.Add(CreateVectorColumn($"{needLabel}{resourceSuffix}", "NeedText", true));
 
         for (var i = 0; i < resourceCount; i++)
         {
             var header = LocalizationService.Instance.Format("Banker.Column.Resource", i + 1);
-            ProcessGrid.Columns.Add(CreateResourceColumn($"{allocationLabel}-{header}", $"Allocation[{i}]", false));
-            ProcessGrid.Columns.Add(CreateResourceColumn($"{maxLabel}-{header}", $"Max[{i}]", false));
-            ProcessGrid.Columns.Add(CreateResourceColumn($"{needLabel}-{header}", $"Need[{i}]", true));
             BuildAvailableResourceColumn(i, header);
         }
     }
@@ -132,7 +134,7 @@ public partial class BankerAlgorithmPage : UserControl
         AvailableResourceGrid.Children.Add(inputBox);
     }
 
-    private static DataGridTextColumn CreateResourceColumn(string header, string path, bool isReadOnly)
+    private static DataGridTextColumn CreateVectorColumn(string header, string path, bool isReadOnly)
     {
         return new DataGridTextColumn
         {
@@ -140,10 +142,26 @@ public partial class BankerAlgorithmPage : UserControl
             Binding = new Binding(path)
             {
                 Mode = isReadOnly ? BindingMode.OneWay : BindingMode.TwoWay,
-                UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+                UpdateSourceTrigger = isReadOnly ? UpdateSourceTrigger.PropertyChanged : UpdateSourceTrigger.LostFocus
             },
             IsReadOnly = isReadOnly,
-            MinWidth = 60
+            MinWidth = 120
         };
+    }
+
+    private static string BuildResourceSuffix(int resourceCount)
+    {
+        if (resourceCount <= 0)
+        {
+            return string.Empty;
+        }
+
+        var labels = new string[resourceCount];
+        for (var i = 0; i < resourceCount; i++)
+        {
+            labels[i] = $"R{i + 1}";
+        }
+
+        return $"({string.Join(",", labels)})";
     }
 }

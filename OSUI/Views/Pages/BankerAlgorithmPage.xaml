@@ -40,6 +40,9 @@
                          Text="{Binding ResourceTypeCountInput, UpdateSourceTrigger=PropertyChanged}" />
                 <Button Content="{DynamicResource Banker.Button.Apply}"
                         Command="{Binding ApplySizeCommand}" />
+                <Button Content="{DynamicResource Banker.Button.Demo}"
+                        Margin="8,0,0,0"
+                        Command="{Binding UseDemoDataCommand}" />
             </StackPanel>
 
             <Grid Grid.Column="1" Margin="16,0,0,0">
