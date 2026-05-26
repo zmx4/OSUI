@@ -74,7 +74,8 @@ public partial class BankerAlgorithmPage : UserControl
     private void BuildResourceColumns(int resourceCount)
     {
         ProcessGrid.Columns.Clear();
-        AvailableGrid.Columns.Clear();
+        AvailableResourceGrid.Children.Clear();
+        AvailableResourceGrid.ColumnDefinitions.Clear();
 
         var processHeader = LocalizationService.Instance.GetString("Banker.Column.ProcessId");
         ProcessGrid.Columns.Add(new DataGridTextColumn
@@ -94,8 +95,41 @@ public partial class BankerAlgorithmPage : UserControl
             ProcessGrid.Columns.Add(CreateResourceColumn($"{allocationLabel}-{header}", $"Allocation[{i}]", false));
             ProcessGrid.Columns.Add(CreateResourceColumn($"{maxLabel}-{header}", $"Max[{i}]", false));
             ProcessGrid.Columns.Add(CreateResourceColumn($"{needLabel}-{header}", $"Need[{i}]", true));
-            AvailableGrid.Columns.Add(CreateResourceColumn(header, $"[{i}]", false));
+            BuildAvailableResourceColumn(i, header);
         }
+    }
+
+    private void BuildAvailableResourceColumn(int index, string header)
+    {
+        AvailableResourceGrid.ColumnDefinitions.Add(new ColumnDefinition
+        {
+            Width = new GridLength(1, GridUnitType.Star)
+        });
+
+        var headerBlock = new TextBlock
+        {
+            Text = header,
+            FontWeight = FontWeights.SemiBold,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            Margin = new Thickness(0, 0, 0, 6)
+        };
+        Grid.SetRow(headerBlock, 0);
+        Grid.SetColumn(headerBlock, index);
+        AvailableResourceGrid.Children.Add(headerBlock);
+
+        var inputBox = new TextBox
+        {
+            MinWidth = 60,
+            HorizontalContentAlignment = HorizontalAlignment.Center
+        };
+        inputBox.SetBinding(TextBox.TextProperty, new Binding($"AvailableResources[0][{index}]")
+        {
+            Mode = BindingMode.TwoWay,
+            UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+        });
+        Grid.SetRow(inputBox, 1);
+        Grid.SetColumn(inputBox, index);
+        AvailableResourceGrid.Children.Add(inputBox);
     }
 
     private static DataGridTextColumn CreateResourceColumn(string header, string path, bool isReadOnly)
