@@ -89,4 +89,8 @@ Version: 1.0.0
     <sys:String x:Key="Auth.Error.CurrentPasswordIncorrect" xmlns:sys="clr-namespace:System;assembly=mscorlib">Current password is incorrect.</sys:String>
     <sys:String x:Key="Auth.Error.NewPasswordSameAsOld" xmlns:sys="clr-namespace:System;assembly=mscorlib">New password must be different from current password.</sys:String>
     <sys:String x:Key="Auth.Error.UserNotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">User does not exist.</sys:String>
+    <sys:String x:Key="Banker.Label.RequestProcessId" xmlns:sys="clr-namespace:System;assembly=mscorlib">Request Process ID</sys:String>
+    <sys:String x:Key="Banker.Label.RequestVector" xmlns:sys="clr-namespace:System;assembly=mscorlib">Request Vector (space separated)</sys:String>
+    <sys:String x:Key="Banker.Button.SimulateRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">Simulate Request</sys:String>
+    <sys:String x:Key="Banker.Button.CheckSafety" xmlns:sys="clr-namespace:System;assembly=mscorlib">Check Safety</sys:String>
 </ResourceDictionary>

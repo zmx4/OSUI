@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="10">
@@ -70,5 +71,24 @@
                   CanUserAddRows="False"
                   HeadersVisibility="Column"
                   HorizontalScrollBarVisibility="Auto" />
+
+        <Border Grid.Row="2" Margin="10,0,10,10" Padding="10" BorderBrush="LightGray" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{DynamicResource Banker.Label.RequestProcessId}" VerticalAlignment="Center" Margin="0,0,8,0" FontWeight="SemiBold"/>
+                <TextBox Width="50" VerticalAlignment="Center" Margin="0,0,16,0"
+                         Text="{Binding RequestProcessIdInput, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Text="{DynamicResource Banker.Label.RequestVector}" VerticalAlignment="Center" Margin="0,0,8,0" FontWeight="SemiBold"/>
+                <TextBox Width="120" VerticalAlignment="Center" Margin="0,0,16,0"
+                         Text="{Binding RequestVectorInput, UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button Content="{DynamicResource Banker.Button.SimulateRequest}"
+                        Margin="0,0,16,0"
+                        Command="{Binding SimulateRequestCommand}" />
+
+                <Button Content="{DynamicResource Banker.Button.CheckSafety}"
+                        Command="{Binding CheckSafetyCommand}" />
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

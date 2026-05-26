@@ -88,4 +88,8 @@
     <sys:String x:Key="Auth.Error.CurrentPasswordIncorrect" xmlns:sys="clr-namespace:System;assembly=mscorlib">原密码错误。</sys:String>
     <sys:String x:Key="Auth.Error.NewPasswordSameAsOld" xmlns:sys="clr-namespace:System;assembly=mscorlib">新密码不能与原密码相同。</sys:String>
     <sys:String x:Key="Auth.Error.UserNotFound" xmlns:sys="clr-namespace:System;assembly=mscorlib">用户不存在。</sys:String>
+    <sys:String x:Key="Banker.Label.RequestProcessId" xmlns:sys="clr-namespace:System;assembly=mscorlib">请求进程 ID</sys:String>
+    <sys:String x:Key="Banker.Label.RequestVector" xmlns:sys="clr-namespace:System;assembly=mscorlib">请求向量(空格分隔)</sys:String>
+    <sys:String x:Key="Banker.Button.SimulateRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">模拟资源请求</sys:String>
+    <sys:String x:Key="Banker.Button.CheckSafety" xmlns:sys="clr-namespace:System;assembly=mscorlib">检查安全性</sys:String>
 </ResourceDictionary>
