@@ -40,18 +40,22 @@
                          Text="{Binding ResourceTypeCountInput, UpdateSourceTrigger=PropertyChanged}" />
                 <Button Content="{DynamicResource Banker.Button.Apply}"
                         Command="{Binding ApplySizeCommand}" />
+                <Button Content="{DynamicResource Banker.Button.Demo}"
+                        Margin="8,0,0,0"
+                        Command="{Binding UseDemoDataCommand}" />
             </StackPanel>
 
             <Grid Grid.Column="1" Margin="16,0,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
                 <TextBlock Text="{DynamicResource Banker.Table.Available}"
                            FontSize="18"
                            FontWeight="SemiBold"
-                           Margin="0,0,0,6" />
-                <TextBox Grid.Row="1"
+                           VerticalAlignment="Center"
+                           Margin="0,0,8,0"/>
+                <TextBox Grid.Column="1"
                          MinHeight="40"
                          HorizontalScrollBarVisibility="Auto"
                          Text="{Binding AvailableResourcesInput, UpdateSourceTrigger=PropertyChanged}" />

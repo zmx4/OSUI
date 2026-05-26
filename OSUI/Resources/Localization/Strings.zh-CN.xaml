@@ -73,6 +73,7 @@
     <sys:String x:Key="Banker.Label.ProcessCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">进程数</sys:String>
     <sys:String x:Key="Banker.Label.ResourceTypeCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">资源种类数</sys:String>
     <sys:String x:Key="Banker.Button.Apply" xmlns:sys="clr-namespace:System;assembly=mscorlib">应用</sys:String>
+    <sys:String x:Key="Banker.Button.Demo" xmlns:sys="clr-namespace:System;assembly=mscorlib">使用演示数据</sys:String>
     <sys:String x:Key="Banker.Table.Allocation" xmlns:sys="clr-namespace:System;assembly=mscorlib">已分配</sys:String>
     <sys:String x:Key="Banker.Table.Max" xmlns:sys="clr-namespace:System;assembly=mscorlib">最大需求</sys:String>
     <sys:String x:Key="Banker.Table.Need" xmlns:sys="clr-namespace:System;assembly=mscorlib">需求</sys:String>

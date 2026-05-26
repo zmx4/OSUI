@@ -56,6 +56,60 @@ public partial class BankerAlgorithmPageViewModel : PageViewModel
         ResourceTypeCount = ResourceTypeCountInput;
     }
 
+    [RelayCommand]
+    private void UseDemoData()
+    {
+        const int demoProcessCount = 5;
+        const int demoResourceCount = 3;
+
+        ResourceTypeCount = demoResourceCount;
+        ProcessCount = demoProcessCount;
+
+        var allocation = new[,]
+        {
+            { 0, 1, 0 },
+            { 2, 0, 0 },
+            { 3, 0, 2 },
+            { 2, 1, 1 },
+            { 0, 0, 2 }
+        };
+
+        var max = new[,]
+        {
+            { 7, 5, 3 },
+            { 3, 2, 2 },
+            { 9, 0, 2 },
+            { 2, 2, 2 },
+            { 4, 3, 3 }
+        };
+
+        var available = new[] { 3, 3, 2 };
+
+        for (var i = 0; i < demoProcessCount; i++)
+        {
+            var row = Processes[i];
+            for (var j = 0; j < demoResourceCount; j++)
+            {
+                row.Allocation[j] = allocation[i, j];
+                row.Max[j] = max[i, j];
+            }
+        }
+
+        if (AvailableResources.Count == 0)
+        {
+            AvailableResources.Add(new ResourceVector(demoResourceCount));
+        }
+        else
+        {
+            AvailableResources[0].Resize(demoResourceCount);
+        }
+
+        for (var i = 0; i < demoResourceCount; i++)
+        {
+            AvailableResources[0][i] = available[i];
+        }
+    }
+
     partial void OnProcessCountChanged(int value)
     {
         if (ProcessCountInput != value)
