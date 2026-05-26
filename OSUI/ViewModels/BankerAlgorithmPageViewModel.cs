@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using OSUI.Models;
@@ -27,6 +28,11 @@ public partial class BankerAlgorithmPageViewModel : PageViewModel
 
     [ObservableProperty]
     private ObservableCollection<ResourceVector> _availableResources = new();
+
+    [ObservableProperty]
+    private string _availableResourcesInput = string.Empty;
+
+    private bool _suppressAvailableResourcesSync;
 
     public BankerAlgorithmPageViewModel()
     {
@@ -92,6 +98,7 @@ public partial class BankerAlgorithmPageViewModel : PageViewModel
 
         AvailableResources.Clear();
         AvailableResources.Add(new ResourceVector(ResourceTypeCount));
+        UpdateAvailableResourcesInputFromVector();
     }
 
     private void UpdateProcessCount()
@@ -132,5 +139,62 @@ public partial class BankerAlgorithmPageViewModel : PageViewModel
         {
             AvailableResources[0].Resize(ResourceTypeCount);
         }
+
+        UpdateAvailableResourcesInputFromVector();
+    }
+
+    partial void OnAvailableResourcesInputChanged(string value)
+    {
+        if (_suppressAvailableResourcesSync)
+        {
+            return;
+        }
+
+        SyncAvailableResourcesFromInput(value);
+    }
+
+    private void SyncAvailableResourcesFromInput(string value)
+    {
+        if (ResourceTypeCount < 1)
+        {
+            return;
+        }
+
+        if (AvailableResources.Count == 0)
+        {
+            AvailableResources.Add(new ResourceVector(ResourceTypeCount));
+        }
+
+        var vector = AvailableResources[0];
+        var parts = value.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries);
+        for (var i = 0; i < ResourceTypeCount; i++)
+        {
+            var parsed = 0;
+            if (i < parts.Length && int.TryParse(parts[i], out var valuePart))
+            {
+                parsed = Math.Max(0, valuePart);
+            }
+
+            vector[i] = parsed;
+        }
+    }
+
+    private void UpdateAvailableResourcesInputFromVector()
+    {
+        if (AvailableResources.Count == 0 || ResourceTypeCount < 1)
+        {
+            return;
+        }
+
+        var vector = AvailableResources[0];
+        var values = new string[ResourceTypeCount];
+        for (var i = 0; i < ResourceTypeCount; i++)
+        {
+            values[i] = vector[i].ToString();
+        }
+
+        _suppressAvailableResourcesSync = true;
+        AvailableResourcesInput = string.Join(" ", values);
+        _suppressAvailableResourcesSync = false;
     }
 }

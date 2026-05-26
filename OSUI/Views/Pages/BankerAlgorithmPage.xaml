@@ -51,14 +51,10 @@
                            FontSize="18"
                            FontWeight="SemiBold"
                            Margin="0,0,0,6" />
-                <Grid x:Name="AvailableResourceGrid"
-                      Grid.Row="1"
-                      MinHeight="70">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                </Grid>
+                <TextBox Grid.Row="1"
+                         MinHeight="40"
+                         HorizontalScrollBarVisibility="Auto"
+                         Text="{Binding AvailableResourcesInput, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </Grid>
 
