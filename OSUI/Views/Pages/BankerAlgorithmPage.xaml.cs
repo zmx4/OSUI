@@ -92,13 +92,13 @@ public partial class BankerAlgorithmPage
         ProcessGrid.Columns.Add(CreateVectorColumn($"{allocationLabel}{resourceSuffix}", "AllocationText", false));
         ProcessGrid.Columns.Add(CreateVectorColumn($"{needLabel}{resourceSuffix}", "NeedText", true));
 
-        for (var i = 0; i < resourceCount; i++)
-        {
-            var header = LocalizationService.Instance.Format("Banker.Column.Resource", i + 1);
-            ProcessGrid.Columns.Add(CreateResourceColumn($"{allocationLabel}-{header}", $"Allocation[{i}]", false));
-            ProcessGrid.Columns.Add(CreateResourceColumn($"{maxLabel}-{header}", $"Max[{i}]", false));
-            ProcessGrid.Columns.Add(CreateResourceColumn($"{needLabel}-{header}", $"Need[{i}]", true));
-        }
+        // for (var i = 0; i < resourceCount; i++)
+        // {
+        //     var header = LocalizationService.Instance.Format("Banker.Column.Resource", i + 1);
+        //     ProcessGrid.Columns.Add(CreateResourceColumn($"{allocationLabel}-{header}", $"Allocation[{i}]", false));
+        //     ProcessGrid.Columns.Add(CreateResourceColumn($"{maxLabel}-{header}", $"Max[{i}]", false));
+        //     ProcessGrid.Columns.Add(CreateResourceColumn($"{needLabel}-{header}", $"Need[{i}]", true));
+        // }
     }
 
     private static DataGridTextColumn CreateVectorColumn(string header, string path, bool isReadOnly)
@@ -110,9 +110,10 @@ public partial class BankerAlgorithmPage
             {
                 Mode = isReadOnly ? BindingMode.OneWay : BindingMode.TwoWay,
                 UpdateSourceTrigger = isReadOnly ? UpdateSourceTrigger.PropertyChanged : UpdateSourceTrigger.LostFocus
+                
             },
             IsReadOnly = isReadOnly,
-            MinWidth = 120
+            MinWidth = 210
         };
     }
 
