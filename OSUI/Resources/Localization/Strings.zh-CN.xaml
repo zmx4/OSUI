@@ -61,7 +61,10 @@
     <sys:String x:Key="Scheduler.Button.Add" xmlns:sys="clr-namespace:System;assembly=mscorlib">添加</sys:String>
     <sys:String x:Key="Scheduler.Button.Run" xmlns:sys="clr-namespace:System;assembly=mscorlib">运行</sys:String>
     <sys:String x:Key="Scheduler.Button.LoadExample1" xmlns:sys="clr-namespace:System;assembly=mscorlib">使用示例数据1</sys:String>
-    <sys:String x:Key="Scheduler.Button.LoadExample2" xmlns:sys="clr-namespace:System;assembly=mscorlib">使用示例数据2</sys:String>
+    <sys:String x:Key="Scheduler.Label.TotalTurnaroundTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">总周转时间：</sys:String>
+    <sys:String x:Key="Scheduler.Label.TotalWeightedTurnaroundTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">总带权周转时间：</sys:String>
+    <sys:String x:Key="Scheduler.Label.AverageTurnaroundTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">平均周转时间：</sys:String>
+    <sys:String x:Key="Scheduler.Label.AverageWeightedTurnaroundTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">平均带权周转时间：</sys:String>    <sys:String x:Key="Scheduler.Button.LoadExample2" xmlns:sys="clr-namespace:System;assembly=mscorlib">使用示例数据2</sys:String>
     <sys:String x:Key="Scheduler.Column.ProcessId" xmlns:sys="clr-namespace:System;assembly=mscorlib">进程ID</sys:String>
     <sys:String x:Key="Scheduler.Column.ArrivalTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">到达时间</sys:String>
     <sys:String x:Key="Scheduler.Column.BurstTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">服务时间</sys:String>

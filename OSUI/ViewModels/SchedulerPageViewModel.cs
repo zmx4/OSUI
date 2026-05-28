@@ -31,6 +31,18 @@ public partial class SchedulerPageViewModel : PageViewModel
     [ObservableProperty]
     private string _selectedTimeInputMode = MinutesMode;
 
+    [ObservableProperty]
+    private double _totalTurnaroundTime;
+
+    [ObservableProperty]
+    private double _totalWeightedTurnaroundTime;
+
+    [ObservableProperty]
+    private double _averageTurnaroundTime;
+
+    [ObservableProperty]
+    private double _averageWeightedTurnaroundTime;
+
     [RelayCommand]
     private void AddProcess()
     {
@@ -78,5 +90,10 @@ public partial class SchedulerPageViewModel : PageViewModel
         {
             Processes.Add(p);
         }
+
+        TotalTurnaroundTime = System.Math.Round(Processes.Sum(p => (double)p.TurnaroundTime), 2);
+        TotalWeightedTurnaroundTime = System.Math.Round(Processes.Sum(p => p.WeightedTurnaroundTime), 2);
+        AverageTurnaroundTime = System.Math.Round(Processes.Average(p => (double)p.TurnaroundTime), 2);
+        AverageWeightedTurnaroundTime = System.Math.Round(Processes.Average(p => p.WeightedTurnaroundTime), 2);
     }
 }

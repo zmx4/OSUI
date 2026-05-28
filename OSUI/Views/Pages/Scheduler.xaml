@@ -164,5 +164,23 @@
                 <DataGridTextColumn Header="{DynamicResource Scheduler.Column.WeightedTurnaroundTime}" Binding="{Binding WeightedTurnaroundTime, StringFormat={}{0:F2}}" IsReadOnly="True" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <!-- 底部统计面板 -->
+        <Border Grid.Row="2" Margin="0,10,0,0" Padding="10" Background="#f0f0f0" CornerRadius="5">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{DynamicResource Scheduler.Label.TotalTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding TotalTurnaroundTime}" Margin="0,0,20,0" />
+
+                <TextBlock Text="{DynamicResource Scheduler.Label.TotalWeightedTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding TotalWeightedTurnaroundTime}" Margin="0,0,20,0" />
+
+                <TextBlock Text="{DynamicResource Scheduler.Label.AverageTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding AverageTurnaroundTime}" Margin="0,0,20,0" />
+
+                <TextBlock Text="{DynamicResource Scheduler.Label.AverageWeightedTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding AverageWeightedTurnaroundTime}" />
+            </WrapPanel>
+        </Border>
+
     </Grid>
 </UserControl>
