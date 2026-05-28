@@ -27,10 +27,10 @@ public partial class BankerAlgorithmPageViewModel : PageViewModel
     private int _resourceTypeCountInput = DefaultResourceTypeCount;
 
     [ObservableProperty]
-    private ObservableCollection<BankerProcessRow> _processes = new();
+    private ObservableCollection<BankerProcessRow> _processes = [];
 
     [ObservableProperty]
-    private ObservableCollection<ResourceVector> _availableResources = new();
+    private ObservableCollection<ResourceVector> _availableResources = [];
 
     [ObservableProperty]
     private string _availableResourcesInput = string.Empty;

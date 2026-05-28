@@ -60,6 +60,8 @@
     <sys:String x:Key="Scheduler.TimeType" xmlns:sys="clr-namespace:System;assembly=mscorlib">时间类型</sys:String>
     <sys:String x:Key="Scheduler.Button.Add" xmlns:sys="clr-namespace:System;assembly=mscorlib">添加</sys:String>
     <sys:String x:Key="Scheduler.Button.Run" xmlns:sys="clr-namespace:System;assembly=mscorlib">运行</sys:String>
+    <sys:String x:Key="Scheduler.Button.LoadExample1" xmlns:sys="clr-namespace:System;assembly=mscorlib">使用示例数据1</sys:String>
+    <sys:String x:Key="Scheduler.Button.LoadExample2" xmlns:sys="clr-namespace:System;assembly=mscorlib">使用示例数据2</sys:String>
     <sys:String x:Key="Scheduler.Column.ProcessId" xmlns:sys="clr-namespace:System;assembly=mscorlib">进程ID</sys:String>
     <sys:String x:Key="Scheduler.Column.ArrivalTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">到达时间</sys:String>
     <sys:String x:Key="Scheduler.Column.BurstTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">服务时间</sys:String>

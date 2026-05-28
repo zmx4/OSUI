@@ -61,6 +61,8 @@ Version: 1.0.0
     <sys:String x:Key="Scheduler.TimeType" xmlns:sys="clr-namespace:System;assembly=mscorlib">Time format</sys:String>
     <sys:String x:Key="Scheduler.Button.Add" xmlns:sys="clr-namespace:System;assembly=mscorlib">Add</sys:String>
     <sys:String x:Key="Scheduler.Button.Run" xmlns:sys="clr-namespace:System;assembly=mscorlib">Run</sys:String>
+    <sys:String x:Key="Scheduler.Button.LoadExample1" xmlns:sys="clr-namespace:System;assembly=mscorlib">Use Example Data1</sys:String>
+    <sys:String x:Key="Scheduler.Button.LoadExample2" xmlns:sys="clr-namespace:System;assembly=mscorlib">Use Example Data2</sys:String>
     <sys:String x:Key="Scheduler.Column.ProcessId" xmlns:sys="clr-namespace:System;assembly=mscorlib">Process ID</sys:String>
     <sys:String x:Key="Scheduler.Column.ArrivalTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">Arrival Time</sys:String>
     <sys:String x:Key="Scheduler.Column.BurstTime" xmlns:sys="clr-namespace:System;assembly=mscorlib">Burst Time</sys:String>

@@ -39,6 +39,28 @@ public partial class SchedulerPageViewModel : PageViewModel
     }
 
     [RelayCommand]
+    private void LoadExample()
+    {
+        SelectedTimeInputMode = HourMinuteMode;
+        Processes.Clear();
+        Processes.Add(new Process { Id = 1, ArrivalTime = 8 * 60, BurstTime = 120 });
+        Processes.Add(new Process { Id = 2, ArrivalTime = 8 * 60 + 50, BurstTime = 50 });
+        Processes.Add(new Process { Id = 3, ArrivalTime = 9 * 60, BurstTime = 10 });
+        Processes.Add(new Process { Id = 4, ArrivalTime = 9 * 60 + 50, BurstTime = 20 });
+    }
+    [RelayCommand]
+    private void LoadSecondExample()
+    {
+        SelectedTimeInputMode = HourMinuteMode;
+        Processes.Clear();
+        Processes.Add(new Process { Id = 1, ArrivalTime = 0, BurstTime = 4 });
+        Processes.Add(new Process { Id = 2, ArrivalTime = 1, BurstTime = 3 });
+        Processes.Add(new Process { Id = 3, ArrivalTime = 2, BurstTime = 5 });
+        Processes.Add(new Process { Id = 4, ArrivalTime = 3, BurstTime = 2 });
+        Processes.Add(new Process { Id = 5, ArrivalTime = 4, BurstTime = 4 });
+    }
+
+    [RelayCommand]
     private void Run()
     {
         if (Processes.Count == 0) return;

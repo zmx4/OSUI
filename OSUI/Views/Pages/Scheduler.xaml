@@ -39,7 +39,7 @@
                     Width="200" Margin="10" ItemsSource="{Binding Algorithms}" SelectedItem="{Binding SelectedAlgorithm}"/>
                 <TextBlock Grid.Column="2"
                     Text="{DynamicResource Scheduler.TimeType}"
-                    FontSize="24" FontWeight="Bold" Margin="30,10,10,10"/>
+                    FontSize="24" FontWeight="Bold" Margin="20,10,5,10"/>
                 <ComboBox Grid.Column="3"
                     Width="140"
                     Margin="10"
@@ -52,9 +52,13 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Command="{Binding AddProcessCommand}" Content="{DynamicResource Scheduler.Button.Add}" />
                 <Button Grid.Column="1" Margin="10,0,0,0" Command="{Binding RunCommand}" Content="{DynamicResource Scheduler.Button.Run}" />
+                <Button Grid.Column="2" Margin="10,0,0,0" Command="{Binding LoadExampleCommand}" Content="{DynamicResource Scheduler.Button.LoadExample1}" />
+                <Button Grid.Column="3" Margin="10,0,0,0" Command="{Binding LoadSecondExampleCommand}" Content="{DynamicResource Scheduler.Button.LoadExample2}" />
             </Grid>
         </Grid>
         <DataGrid Grid.Row="1" 
