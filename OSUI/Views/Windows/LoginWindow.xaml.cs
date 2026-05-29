@@ -17,6 +17,7 @@ public partial class LoginWindow : Window
             {
                 // 登录成功：打开主窗口，关闭自身
                 var main = App.ServiceProvider.GetRequiredService<MainWindow>();
+                Application.Current.MainWindow = main;
                 main.Show();
                 Close();
             };
