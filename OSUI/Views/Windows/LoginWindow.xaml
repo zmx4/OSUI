@@ -10,6 +10,7 @@
         Title="{DynamicResource Login.WindowTitle}" 
         Width="450" 
         WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         d:DataContext="{d:DesignInstance vm:LoginViewModel}"
         DataContext="{ext:DI {x:Type vm:LoginViewModel}}">
     
@@ -27,15 +28,22 @@
                        Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
             <!-- 用户名 -->
-            <TextBlock Margin="0,0,0,6" Text="{DynamicResource Login.Username}" FontWeight="Medium" />
+            <!-- <TextBlock Margin="0,0,0,6" Text="{DynamicResource Login.Username}" FontWeight="Medium" /> -->
             <TextBox Margin="0,0,0,14"
+                     materialDesign:HintAssist.Hint="{DynamicResource Login.Username}"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      InputMethod.IsInputMethodEnabled="False"
+                     TextWrapping="Wrap"
                      ToolTip="{DynamicResource Login.TestAccountTooltip}"
                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
             <!-- 密码 -->
-            <TextBlock Margin="0,0,0,6" Text="{DynamicResource Login.Password}" FontWeight="Medium" />
-            <PasswordBox x:Name="PasswordBox" Margin="0,0,0,8" PasswordChanged="PasswordBox_PasswordChanged" />
+            <!-- <TextBlock Margin="0,0,0,6" Text="{DynamicResource Login.Password}" FontWeight="Medium" /> -->
+            <PasswordBox x:Name="PasswordBox" 
+                         materialDesign:HintAssist.Hint="{DynamicResource Login.Password}"
+                         Margin="0,0,0,8" 
+                         Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
+                         PasswordChanged="PasswordBox_PasswordChanged" />
 
             <!-- 错误提示 -->
             <TextBlock Margin="0,0,0,8"

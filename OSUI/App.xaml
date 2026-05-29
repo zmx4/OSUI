@@ -1,14 +1,19 @@
 ﻿<Application x:Class="OSUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:OSUI"
              xmlns:vm="clr-namespace:OSUI.ViewModels"
              xmlns:pages="clr-namespace:OSUI.Views.Pages">
     <Application.Resources>
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
-            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+
+            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" /> 
+            <!-- <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/> -->
+            <!-- <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/> -->
+            
             <ResourceDictionary Source="pack://application:,,,/OSUI;component/Resources/Localization/Strings.zh-CN.xaml"/>
         </ResourceDictionary.MergedDictionaries>
 
