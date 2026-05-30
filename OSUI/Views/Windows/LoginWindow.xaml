@@ -12,7 +12,9 @@
         WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         d:DataContext="{d:DesignInstance vm:LoginViewModel}"
-        DataContext="{ext:DI {x:Type vm:LoginViewModel}}">
+        DataContext="{ext:DI {x:Type vm:LoginViewModel}}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     
 
     <Grid>
@@ -25,7 +27,7 @@
             <TextBlock Margin="0,0,0,28"
                        HorizontalAlignment="Center"
                        Text="{DynamicResource Common.AppName}"
-                       Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                       Foreground="{DynamicResource MaterialDesignBodyLight}" />
 
             <!-- 用户名 -->
             <!-- <TextBlock Margin="0,0,0,6" Text="{DynamicResource Login.Username}" FontWeight="Medium" /> -->
@@ -48,7 +50,7 @@
             <!-- 错误提示 -->
             <TextBlock Margin="0,0,0,8"
                        Text="{Binding ErrorMessage}"
-                       Foreground="{DynamicResource SystemFillColorCriticalBrush}"
+                       Foreground="{DynamicResource MaterialDesignValidationErrorBrush}"
                        FontSize="13">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
@@ -74,8 +76,8 @@
                 <TextBlock Text="{DynamicResource Common.Or}"
                            HorizontalAlignment="Center"
                            Padding="8,0"
-                           Background="{DynamicResource ApplicationPageBackgroundThemeBrush}"
-                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                           Background="{DynamicResource MaterialDesignPaper}"
+                           Foreground="{DynamicResource MaterialDesignBodyLight}"
                            FontSize="12" />
             </Grid>
 

@@ -1,11 +1,11 @@
 using System.Collections.ObjectModel;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using HandyControl.Data;
-using HandyControl.Themes;
+using MaterialDesignThemes.Wpf;
 using OSUI.Data;
 using OSUI.Services;
 
@@ -77,8 +77,13 @@ public partial class SettingsViewModel : PageViewModel
     {
         _authService = authService;
         _preferenceStorage = preferenceStorage;
-        ThemeNames = new ObservableCollection<string> { "Default", "Dark", "Violet" };
-        _selectedTheme = "Default";
+        ThemeNames = new ObservableCollection<string> { "Light", "Dark" };
+        var paletteHelper = new PaletteHelper();
+        var theme = paletteHelper.GetTheme();
+        var initialTheme = theme.GetBaseTheme() == BaseTheme.Dark ? "Dark" : "Light";
+        
+        // 从存储加载选中的主题，如果没有保存过则使用当前的
+        _selectedTheme = _preferenceStorage.Get(PreferenceKeys.Theme, initialTheme);
 
         var fonts = Fonts.SystemFontFamilies.Select(f => f.Source).OrderBy(f => f).ToList();
         FontNames = new ObservableCollection<string>(fonts);
@@ -91,15 +96,21 @@ public partial class SettingsViewModel : PageViewModel
     
     private void ApplyTheme(string themeName)
     {
-        if (Enum.TryParse(themeName, out SkinType skinType))
+        var paletteHelper = new PaletteHelper();
+        var theme = paletteHelper.GetTheme();
+
+        if (themeName == "Dark")
         {
-            var dictionaries = Application.Current.Resources.MergedDictionaries;
-            var themeDict = dictionaries.FirstOrDefault(d => d is Theme);
-            if (themeDict is Theme hcTheme)
-            {
-                hcTheme.Skin = skinType;
-            }
+            theme.SetBaseTheme(BaseTheme.Dark);
         }
+        else
+        {
+            theme.SetBaseTheme(BaseTheme.Light);
+        }
+
+        paletteHelper.SetTheme(theme);
+        
+        _preferenceStorage.Set(PreferenceKeys.Theme, themeName);
     }
 
     #endregion

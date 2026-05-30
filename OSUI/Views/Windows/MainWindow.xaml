@@ -7,10 +7,12 @@
         xmlns:vm="clr-namespace:OSUI.ViewModels"
         xmlns:ext="clr-namespace:OSUI.Extensions"
         mc:Ignorable="d"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Title="{DynamicResource Main.WindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         DataContext="{ext:DI {x:Type vm:MainWindowViewModel}}"
-        MinHeight="540" MinWidth="960">
+        MinHeight="576" MinWidth="1024">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="169*"/>
@@ -24,8 +26,8 @@
         <Border Grid.Row="0"
                 Grid.ColumnSpan="2"
                 Padding="16,0"
-                Background="{DynamicResource NavigationViewContentBackground}"
-                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                Background="{DynamicResource MaterialDesignPaper}"
+                BorderBrush="{DynamicResource MaterialDesignDivider}"
                 BorderThickness="0,0,0,1">
             <Grid Height="52">
                 <Grid.ColumnDefinitions>
