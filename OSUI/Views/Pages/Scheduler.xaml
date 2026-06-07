@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" HorizontalAlignment="Left">
+        <Grid Grid.Row="0" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -48,17 +48,34 @@
                     SelectedValuePath="Mode"
                     SelectedValue="{Binding SelectedTimeInputMode}"/>
             </Grid>
-            <Grid Grid.Column="1" HorizontalAlignment="Stretch" >
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Command="{Binding AddProcessCommand}" Content="{DynamicResource Scheduler.Button.Add}" />
-                <Button Grid.Column="1" Margin="10,0,0,0" Command="{Binding RunCommand}" Content="{DynamicResource Scheduler.Button.Run}" />
-                <Button Grid.Column="2" Margin="10,0,0,0" Command="{Binding LoadExampleCommand}" Content="{DynamicResource Scheduler.Button.LoadExample1}" />
-                <Button Grid.Column="3" Margin="10,0,0,0" Command="{Binding LoadSecondExampleCommand}" Content="{DynamicResource Scheduler.Button.LoadExample2}" />
+                
+                
+                <Button Grid.Column="0" 
+                        Margin="5,0,0,0" 
+                        Command="{Binding LoadExampleCommand}" 
+                        Content="{DynamicResource Scheduler.Button.LoadExample1}" />
+                
+                <Button Grid.Column="1" 
+                        Margin="5,0,0,0" 
+                        Command="{Binding LoadSecondExampleCommand}" 
+                        Content="{DynamicResource Scheduler.Button.LoadExample2}" />
+
+                <Button Grid.Column="2" 
+                        Margin="5,0,0,0" 
+                        Command="{Binding AddProcessCommand}" 
+                        Content="{DynamicResource Scheduler.Button.Add}" />
+
+                <Button Grid.Column="3" 
+                        Margin="5,0,5,0" 
+                        Command="{Binding RunCommand}" 
+                        Content="{DynamicResource Scheduler.Button.Run}" />
             </Grid>
         </Grid>
         <DataGrid Grid.Row="1" 
@@ -166,6 +183,21 @@
         </DataGrid>
 
         <!-- 底部统计面板 -->
+        <Border Grid.Row="2" Margin="0,10,0,0" Padding="10" Background="{DynamicResource MaterialDesignCardBackground}" CornerRadius="5">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{DynamicResource Scheduler.Label.TotalTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding TotalTurnaroundTime}" Margin="0,0,20,0" />
+
+                <TextBlock Text="{DynamicResource Scheduler.Label.TotalWeightedTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding TotalWeightedTurnaroundTime}" Margin="0,0,20,0" />
+
+                <TextBlock Text="{DynamicResource Scheduler.Label.AverageTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding AverageTurnaroundTime}" Margin="0,0,20,0" />
+
+                <TextBlock Text="{DynamicResource Scheduler.Label.AverageWeightedTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding AverageWeightedTurnaroundTime}" />
+            </WrapPanel>
+        </Border>
         <Border Grid.Row="2" Margin="0,10,0,0" Padding="10" Background="{DynamicResource MaterialDesignCardBackground}" CornerRadius="5">
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="{DynamicResource Scheduler.Label.TotalTurnaroundTime}" FontWeight="SemiBold" Margin="0,0,5,0" />

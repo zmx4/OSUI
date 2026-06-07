@@ -46,7 +46,7 @@ public partial class App : Application
         // Windows
         services.AddTransient<LoginWindow>();
         services.AddTransient<RegisterWindow>();
-        services.AddTransient<MainWindow>();
+        services.AddSingleton<MainWindow>();
         services.AddTransient<ChangePasswordWindow>();
         
         // Pages
