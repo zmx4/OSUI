@@ -8,6 +8,7 @@
         xmlns:ext="clr-namespace:OSUI.Extensions"
         mc:Ignorable="d"
         Title="{DynamicResource Login.WindowTitle}" 
+        ResizeMode="NoResize"
         Width="450" 
         WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
