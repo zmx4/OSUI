@@ -3,4 +3,9 @@
   <PropertyGroup>
     <_LastSelectedProfileId>D:\Dev\Project\OSUI\OSUI\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Views\Windows\MessageBoxWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace OSUI.Models;
+﻿using System.Runtime.Serialization;
+
+namespace OSUI.Models;
 
 public class Process
 {
