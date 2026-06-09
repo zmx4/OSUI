@@ -92,7 +92,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Border Grid.Row="2"  Margin="0,10,0,0" Padding="10" Background="{DynamicResource MaterialDesignCardBackground}" CornerRadius="5">
+        <Border Grid.Row="2"  Margin="0,0,0,0" Padding="10,5,10,5" Background="{DynamicResource MaterialDesignCardBackground}" CornerRadius="5">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="{DynamicResource Banker.Label.RequestProcessId}" VerticalAlignment="Center"
                            Margin="0,0,8,0" FontWeight="SemiBold" />

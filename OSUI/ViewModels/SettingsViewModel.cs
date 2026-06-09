@@ -17,6 +17,7 @@ public partial class SettingsViewModel : PageViewModel
 {
     private readonly IAuthService _authService;
     private readonly IPreferenceStorage _preferenceStorage;
+    private readonly IDialogService _dialogService;
     private bool _isUpdatingLanguageSelection;
     
     [ObservableProperty]
@@ -73,11 +74,14 @@ public partial class SettingsViewModel : PageViewModel
 
     public Action? OnOpenChangePasswordWindow { get; set; }
     
-    public SettingsViewModel(IAuthService authService, IPreferenceStorage preferenceStorage)
+    public SettingsViewModel(IAuthService authService, IPreferenceStorage preferenceStorage,  IDialogService dialogService)
     {
         _authService = authService;
         _preferenceStorage = preferenceStorage;
+        _dialogService = dialogService;
+        
         ThemeNames = new ObservableCollection<string> { "Light", "Dark" };
+        
         var paletteHelper = new PaletteHelper();
         var theme = paletteHelper.GetTheme();
         var initialTheme = theme.GetBaseTheme() == BaseTheme.Dark ? "Dark" : "Light";
@@ -186,7 +190,8 @@ public partial class SettingsViewModel : PageViewModel
     {
         var userName = _authService.CurrentUser?.Username ?? LocalizationService.Instance.GetString("Common.NotLoggedIn");
         var aboutText = LocalizationService.Instance.Format("Settings.About.Text", userName);
-        MessageBox.Show(aboutText, LocalizationService.Instance.GetString("Settings.About.Title"));
+        // MessageBox.Show(aboutText, LocalizationService.Instance.GetString("Settings.About.Title"));
+        _dialogService.ShowDialog(aboutText);
     }
 
     #endregion

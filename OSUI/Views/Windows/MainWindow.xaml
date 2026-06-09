@@ -3,13 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:OSUI"
         xmlns:vm="clr-namespace:OSUI.ViewModels"
         xmlns:ext="clr-namespace:OSUI.Extensions"
         mc:Ignorable="d"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Title="{DynamicResource Main.WindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Title="{DynamicResource Main.WindowTitle}" 
+        Height="450" 
+        Width="800" 
+        WindowStartupLocation="CenterScreen"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         DataContext="{ext:DI {x:Type vm:MainWindowViewModel}}"
         MinHeight="576" MinWidth="1024">
@@ -60,6 +64,18 @@
         </Border>
         
         <!-- <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" x:Name="MainFrame" /> -->
-        <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding NavigationService.CurrentView}"></ContentControl>
+        <materialDesign:DialogHost Grid.Row="1" 
+                                   Grid.Column="0" 
+                                   Grid.ColumnSpan="2"
+                                   ApplyBlurBackground="True"
+                                   BlurRadius="8"
+                                   CloseOnClickAway="True"
+                                   Identifier="DialogHost">
+            <!-- <materialDesign:DialogHost.DialogContent> -->
+            <!--      -->
+            <!-- </materialDesign:DialogHost.DialogContent> -->
+            <ContentControl  
+                Content="{Binding NavigationService.CurrentView}"/>
+        </materialDesign:DialogHost>
     </Grid>
 </Window>
