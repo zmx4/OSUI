@@ -81,6 +81,7 @@ public partial class SettingsViewModel : PageViewModel
         _dialogService = dialogService;
         
         ThemeNames = new ObservableCollection<string> { "Light", "Dark" };
+        PageNames = ApplicationPageNames.SettingsPage;
         
         var paletteHelper = new PaletteHelper();
         var theme = paletteHelper.GetTheme();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using OSUI.Data;
 using OSUI.Models;
 using OSUI.Services;
 
@@ -45,6 +46,8 @@ public partial class BankerAlgorithmPageViewModel : PageViewModel
 
     public BankerAlgorithmPageViewModel()
     {
+        PageNames = ApplicationPageNames.BankerAlgorithmPage;
+        
         InitializeData();
     }
 

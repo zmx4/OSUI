@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using OSUI.Models;
 using OSUI.Services;
 using System.Linq;
+using OSUI.Data;
 
 namespace OSUI.ViewModels;
 
@@ -14,6 +15,11 @@ public partial class SchedulerPageViewModel : PageViewModel
     private const string MinutesMode = "MINUTES";
     private const string HourMinuteMode = "HH:MM";
 
+    public SchedulerPageViewModel()
+    {
+        PageNames = ApplicationPageNames.SchedulerPage;
+    }
+    
     [ObservableProperty]
     private ObservableCollection<Process> _processes = new();
 

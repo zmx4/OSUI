@@ -3,5 +3,7 @@
 public enum ApplicationPageNames
 {
     HelloPage,
-    SchedulerPage
+    SchedulerPage,
+    BankerAlgorithmPage,
+    SettingsPage
 }
