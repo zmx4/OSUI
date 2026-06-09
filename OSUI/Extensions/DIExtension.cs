@@ -1,12 +1,10 @@
-﻿using System;
-using System.Windows.Markup;
-using Microsoft.Extensions.DependencyInjection;
+﻿using System.Windows.Markup;
 
 namespace OSUI.Extensions;
 
 public class DIExtension : MarkupExtension
 {
-    public Type Type { get; set; }
+    private Type? Type { get; set; }
 
     public DIExtension() { }
     
@@ -15,8 +13,9 @@ public class DIExtension : MarkupExtension
         Type = type;
     }
 
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public override object? ProvideValue(IServiceProvider serviceProvider)
     {
-        return App.ServiceProvider.GetService(Type);
+        if (Type != null) return App.ServiceProvider.GetService(Type);
+        return null;
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
@@ -7,11 +6,11 @@ namespace OSUI.Converters;
 
 public sealed class TimeInputConverter : IMultiValueConverter
 {
-    private static readonly string[] TimeFormats = { "h\\:m", "h\\:mm", "hh\\:m", "hh\\:mm" };
+    private static readonly string[] TimeFormats = ["h\\:m", "h\\:mm", "hh\\:m", "hh\\:mm"];
 
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        if (values == null || values.Length < 2 || values[0] == null || values[0] == DependencyProperty.UnsetValue)
+        if (values.Length < 2 || values[0] == DependencyProperty.UnsetValue)
         {
             return string.Empty;
         }
@@ -21,7 +20,7 @@ public sealed class TimeInputConverter : IMultiValueConverter
             return string.Empty;
         }
 
-        var mode = values[1]?.ToString() ?? string.Empty;
+        var mode = values[1].ToString() ?? string.Empty;
         if (string.Equals(mode, "HH:MM", StringComparison.OrdinalIgnoreCase))
         {
             minutes = Math.Max(0, minutes);
@@ -38,15 +37,15 @@ public sealed class TimeInputConverter : IMultiValueConverter
         var text = (value as string)?.Trim();
         if (string.IsNullOrWhiteSpace(text))
         {
-            return new object[] { Binding.DoNothing, Binding.DoNothing };
+            return [Binding.DoNothing, Binding.DoNothing];
         }
 
         if (TryParseMinutes(text, out var minutes))
         {
-            return new object[] { minutes, Binding.DoNothing };
+            return [minutes, Binding.DoNothing];
         }
 
-        return new object[] { Binding.DoNothing, Binding.DoNothing };
+        return [Binding.DoNothing, Binding.DoNothing];
     }
 
     private static bool TryGetMinutes(object value, out int minutes)
