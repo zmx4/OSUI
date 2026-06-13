@@ -36,7 +36,9 @@
                     Text="{DynamicResource Scheduler.AlgorithmSelection}" 
                     FontSize="24" FontWeight="Bold" Margin="10"/>
                 <ComboBox Grid.Column="1"
-                    Width="200" Margin="10" ItemsSource="{Binding Algorithms}" SelectedItem="{Binding SelectedAlgorithm}"/>
+                    Width="200" Margin="10" 
+                    ItemsSource="{Binding Algorithms}" 
+                    SelectedItem="{Binding SelectedAlgorithm}"/>
                 <TextBlock Grid.Column="2"
                     Text="{DynamicResource Scheduler.TimeType}"
                     FontSize="24" FontWeight="Bold" Margin="5,10,5,10"/>
