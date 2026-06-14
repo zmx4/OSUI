@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using HandyControl.Tools.Extension;
 using OSUI.ViewModels;
 using OSUI.Models;
 
@@ -14,6 +15,12 @@ public partial class DiskSeekAlgorithmPage : UserControl
     {
         InitializeComponent();
         this.DataContextChanged += OnDataContextChanged;
+        
+        // 绑定初始化时可能已经存在的 DataContext
+        if (this.DataContext is DiskSeekAlgorithmPageViewModel vm)
+        {
+            vm.PropertyChanged += ViewModel_PropertyChanged;
+        }
     }
 
     private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
