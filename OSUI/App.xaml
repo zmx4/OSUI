@@ -37,6 +37,11 @@
             <views:BankerAlgorithmPage />
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type vm:DiskSeekAlgorithmPageViewModel}"
+                      xmlns:views="clr-namespace:OSUI.Views.Pages">
+            <views:DiskSeekAlgorithmPage />
+        </DataTemplate>
+
         <Style x:Key="HyperlinkButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />

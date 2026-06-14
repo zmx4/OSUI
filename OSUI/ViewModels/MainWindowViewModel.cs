@@ -47,6 +47,11 @@ public partial class MainWindowViewModel : ObservableObject
     {
         NavigationService.NavigateTo<SettingsViewModel>();
     }
-    
-    
+    [RelayCommand]
+    private void NavigateToDiskSeekAlgorithm()
+    {
+        NavigationService.NavigateTo<DiskSeekAlgorithmPageViewModel>();
+    }
+
+
 }

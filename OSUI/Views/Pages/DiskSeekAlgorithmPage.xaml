@@ -22,25 +22,38 @@
                 <TextBlock Text="Select Algorithm: " VerticalAlignment="Center"/>
                 <ComboBox ItemsSource="{Binding AvailableAlgorithms}" 
                           SelectedItem="{Binding SelectedAlgorithm}" 
-                          Width="200" 
+                          Width="80" 
                           Margin="5,0"/>
-                <Button Content="Start Simulation" Command="{Binding StartSimulationCommand}" 
-                        Margin="5,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Start Position" VerticalAlignment="Center"/>
                 <TextBox
                     Width="40"
+                    Margin="5,0,0,0"
                     Text="{Binding StartIndex}"></TextBox>
-                <TextBlock Text="Request Count"></TextBlock>
+                <TextBlock Text="Request Count" VerticalAlignment="Center"/>
                 <TextBox
                     Width="40"
+                    Margin="5,0,0,0"
                     Text="{Binding RequestCount}"></TextBox>
                 <TextBlock Text="Request Queue" VerticalAlignment="Center"/>
                 <TextBox
                     Width="200"
+                    Margin="5,0,0,0"
                     Text="{Binding RequestsInput}"></TextBox>
+                <Button Content="Start Simulation" Command="{Binding StartSimulationCommand}" 
+                        Margin="5,0"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <TextBlock Text="Total Seek Length: " FontWeight="Bold" />
+                <TextBlock Text="{Binding CurrentResult.TotalSeekLength}" Margin="0,0,15,0" />
+                <TextBlock Text="Avg Seek Length: " FontWeight="Bold" />
+                <TextBlock Text="{Binding CurrentResult.AvgRequestLength, StringFormat=\{0:F2\}}" />
             </StackPanel>
         </StackPanel>
+
+        <Border Grid.Row="1" Margin="10" BorderBrush="LightGray" BorderThickness="1" Background="White">
+            <Canvas x:Name="ChartCanvas" SizeChanged="ChartCanvas_SizeChanged"/>
+        </Border>
+        
     </Grid>
 </UserControl>

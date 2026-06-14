@@ -43,7 +43,8 @@
     <sys:String x:Key="Main.Nav.Scheduler" xmlns:sys="clr-namespace:System;assembly=mscorlib">Scheduling</sys:String>
     <sys:String x:Key="Main.Nav.BankerAlgorithm" xmlns:sys="clr-namespace:System;assembly=mscorlib">Banker's Algorithm</sys:String>
     <sys:String x:Key="Main.Nav.Settings" xmlns:sys="clr-namespace:System;assembly=mscorlib">Settings</sys:String>
-
+    <sys:String x:Key="Main.Nav.DiskSeekAlgorithm" xmlns:sys="clr-namespace:System;assembly=mscorlib">Disk Seek</sys:String>
+    
     <sys:String x:Key="Settings.ThemeSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">Theme</sys:String>
     <sys:String x:Key="Settings.FontSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">Font</sys:String>
     <sys:String x:Key="Settings.LanguageSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">Language</sys:String>

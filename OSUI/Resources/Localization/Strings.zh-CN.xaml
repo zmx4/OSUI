@@ -43,7 +43,8 @@
     <sys:String x:Key="Main.Nav.Scheduler" xmlns:sys="clr-namespace:System;assembly=mscorlib">调度算法</sys:String>
     <sys:String x:Key="Main.Nav.BankerAlgorithm" xmlns:sys="clr-namespace:System;assembly=mscorlib">银行家算法</sys:String>
     <sys:String x:Key="Main.Nav.Settings" xmlns:sys="clr-namespace:System;assembly=mscorlib">设置</sys:String>
-
+    <sys:String x:Key="Main.Nav.DiskSeekAlgorithm" xmlns:sys="clr-namespace:System;assembly=mscorlib">磁盘寻道算法</sys:String>
+    
     <sys:String x:Key="Settings.ThemeSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">主题选择</sys:String>
     <sys:String x:Key="Settings.FontSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">字体选择</sys:String>
     <sys:String x:Key="Settings.LanguageSelection" xmlns:sys="clr-namespace:System;assembly=mscorlib">语言选择</sys:String>
