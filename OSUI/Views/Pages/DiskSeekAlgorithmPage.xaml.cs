@@ -144,7 +144,7 @@ public partial class DiskSeekAlgorithmPage : UserControl
                 Y2 = points[i + 1].Y,
                 Stroke = Brushes.Black,
                 StrokeThickness = 1,
-                StrokeDashArray = new DoubleCollection { 3, 3 } // Dashed line
+                StrokeDashArray = [3, 3] // Dashed line
             };
             ChartCanvas.Children.Add(pathLine);
 
@@ -195,13 +195,13 @@ public partial class DiskSeekAlgorithmPage : UserControl
         double perpX = -dirY;
         double perpY = dirX;
 
-        Point pMid = new Point(ax, ay);
-        Point pBase1 = new Point(ax - dirX * arrowLength + perpX * arrowWidth, ay - dirY * arrowLength + perpY * arrowWidth);
-        Point pBase2 = new Point(ax - dirX * arrowLength - perpX * arrowWidth, ay - dirY * arrowLength - perpY * arrowWidth);
+        var pMid = new Point(ax, ay);
+        var pBase1 = new Point(ax - dirX * arrowLength + perpX * arrowWidth, ay - dirY * arrowLength + perpY * arrowWidth);
+        var pBase2 = new Point(ax - dirX * arrowLength - perpX * arrowWidth, ay - dirY * arrowLength - perpY * arrowWidth);
 
-        Polygon arrow = new Polygon
+        var arrow = new Polygon
         {
-            Points = new PointCollection { pMid, pBase1, pBase2 },
+            Points = [pMid, pBase1, pBase2],
             Fill = Brushes.Black
         };
 
