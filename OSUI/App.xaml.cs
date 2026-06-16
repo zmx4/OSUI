@@ -44,6 +44,7 @@ public partial class App : Application
         services.AddTransient<SettingsViewModel>();
         services.AddTransient<ChangePasswordViewModel>();
         services.AddTransient<DiskSeekAlgorithmPageViewModel>();
+        services.AddTransient<PageReplacementAlgorithmPageViewModel>();
 
         // Windows
         services.AddTransient<LoginWindow>();
@@ -57,6 +58,7 @@ public partial class App : Application
         services.AddTransient<Views.Pages.BankerAlgorithmPage>();
         services.AddTransient<Views.Pages.SettingsPage>();
         services.AddTransient<Views.Pages.DiskSeekAlgorithmPage>();
+        services.AddTransient<Views.Pages.PageReplacementAlgorithmPage>();
     }
 
     protected override void OnStartup(StartupEventArgs e)

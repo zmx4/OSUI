@@ -53,5 +53,10 @@ public partial class MainWindowViewModel : ObservableObject
         NavigationService.NavigateTo<DiskSeekAlgorithmPageViewModel>();
     }
 
+    [RelayCommand]
+    private void NavigateToPageReplacementAlgorithmPage()
+    {
+        NavigationService.NavigateTo<PageReplacementAlgorithmPageViewModel>();
+    }
 
 }

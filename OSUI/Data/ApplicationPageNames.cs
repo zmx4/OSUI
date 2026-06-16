@@ -6,5 +6,6 @@ public enum ApplicationPageNames
     SchedulerPage,
     BankerAlgorithmPage,
     DiskSeekAlgorithmPage,
+    PageReplacementAlgorithmPage,
     SettingsPage
 }

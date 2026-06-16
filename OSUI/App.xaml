@@ -41,6 +41,11 @@
                       xmlns:views="clr-namespace:OSUI.Views.Pages">
             <views:DiskSeekAlgorithmPage />
         </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:PageReplacementAlgorithmPageViewModel}"
+                      xmlns:views="clr-namespace:OSUI.Views.Pages">
+            <views:PageReplacementAlgorithmPage />
+        </DataTemplate>
 
         <Style x:Key="HyperlinkButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
