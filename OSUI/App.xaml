@@ -1,4 +1,4 @@
-﻿<Application x:Class="OSUI.App"
+<Application x:Class="OSUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -46,6 +46,19 @@
                       xmlns:views="clr-namespace:OSUI.Views.Pages">
             <views:PageReplacementAlgorithmPage />
         </DataTemplate>
+
+        <!-- Page Replacement: theme-aware colors (Light defaults) -->
+        <SolidColorBrush x:Key="StepHitBackground" Color="#E8F5E9" />
+        <SolidColorBrush x:Key="StepHitForeground" Color="#2E7D32" />
+        <SolidColorBrush x:Key="StepFaultBackground" Color="#FFEBEE" />
+        <SolidColorBrush x:Key="StepFaultForeground" Color="#C62828" />
+        <SolidColorBrush x:Key="StepCurrentBorder" Color="#FF9800" />
+        <SolidColorBrush x:Key="StepBorder" Color="#CCCCCC" />
+        <SolidColorBrush x:Key="FrameBackground" Color="#E3F2FD" />
+        <SolidColorBrush x:Key="StepLabelForeground" Color="#666666" />
+        <SolidColorBrush x:Key="NoteForeground" Color="#888888" />
+        <SolidColorBrush x:Key="StatusForeground" Color="#333333" />
+        <SolidColorBrush x:Key="VisualizationBorderBrush" Color="#BDBDBD" />
 
         <Style x:Key="HyperlinkButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
