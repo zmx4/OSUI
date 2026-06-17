@@ -99,4 +99,38 @@
     <sys:String x:Key="Banker.Label.RequestVector" xmlns:sys="clr-namespace:System;assembly=mscorlib">请求向量(空格分隔)</sys:String>
     <sys:String x:Key="Banker.Button.SimulateRequest" xmlns:sys="clr-namespace:System;assembly=mscorlib">模拟资源请求</sys:String>
     <sys:String x:Key="Banker.Button.CheckSafety" xmlns:sys="clr-namespace:System;assembly=mscorlib">检查安全性</sys:String>
+
+    <!-- 页面置换算法 -->
+    <sys:String x:Key="PageReplacement.Label.PageSequence" xmlns:sys="clr-namespace:System;assembly=mscorlib">页面序列:</sys:String>
+    <sys:String x:Key="PageReplacement.Label.FrameCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">物理块数:</sys:String>
+    <sys:String x:Key="PageReplacement.Button.Start" xmlns:sys="clr-namespace:System;assembly=mscorlib">开始演示</sys:String>
+    <sys:String x:Key="PageReplacement.Button.PrevStep" xmlns:sys="clr-namespace:System;assembly=mscorlib">⏮ 上一步</sys:String>
+    <sys:String x:Key="PageReplacement.Button.NextStep" xmlns:sys="clr-namespace:System;assembly=mscorlib">下一步 ⏭</sys:String>
+    <sys:String x:Key="PageReplacement.Button.AutoPlay" xmlns:sys="clr-namespace:System;assembly=mscorlib">▶ 自动播放</sys:String>
+    <sys:String x:Key="PageReplacement.Button.Pause" xmlns:sys="clr-namespace:System;assembly=mscorlib">⏸ 暂停</sys:String>
+    <sys:String x:Key="PageReplacement.Algorithm.FIFO" xmlns:sys="clr-namespace:System;assembly=mscorlib">FIFO</sys:String>
+    <sys:String x:Key="PageReplacement.Algorithm.LRU" xmlns:sys="clr-namespace:System;assembly=mscorlib">LRU</sys:String>
+    <sys:String x:Key="PageReplacement.Algorithm.OPT" xmlns:sys="clr-namespace:System;assembly=mscorlib">OPT</sys:String>
+    <sys:String x:Key="PageReplacement.Stats.TotalPages" xmlns:sys="clr-namespace:System;assembly=mscorlib">总页数: {0}</sys:String>
+    <sys:String x:Key="PageReplacement.Stats.PageFaults" xmlns:sys="clr-namespace:System;assembly=mscorlib">缺页次数: {0}</sys:String>
+    <sys:String x:Key="PageReplacement.Stats.PageFaultRate" xmlns:sys="clr-namespace:System;assembly=mscorlib">缺页率: {0:F1}%</sys:String>
+    <sys:String x:Key="PageReplacement.Status.CurrentStep" xmlns:sys="clr-namespace:System;assembly=mscorlib">当前步骤: {0} / {1}</sys:String>
+    <sys:String x:Key="PageReplacement.Status.AccessPage" xmlns:sys="clr-namespace:System;assembly=mscorlib">访问页面: {0}</sys:String>
+    <sys:String x:Key="PageReplacement.Error.InvalidInput" xmlns:sys="clr-namespace:System;assembly=mscorlib">输入无效</sys:String>
+    <sys:String x:Key="PageReplacement.Error.Title" xmlns:sys="clr-namespace:System;assembly=mscorlib">输入解析失败</sys:String>
+    <sys:String x:Key="PageReplacement.Note.PageHit" xmlns:sys="clr-namespace:System;assembly=mscorlib">命中</sys:String>
+    <sys:String x:Key="PageReplacement.Note.PageFault" xmlns:sys="clr-namespace:System;assembly=mscorlib">缺页</sys:String>
+
+    <!-- 磁盘寻道算法 -->
+    <sys:String x:Key="DiskSeek.Title" xmlns:sys="clr-namespace:System;assembly=mscorlib">磁盘寻道算法模拟</sys:String>
+    <sys:String x:Key="DiskSeek.Label.SelectAlgorithm" xmlns:sys="clr-namespace:System;assembly=mscorlib">选择算法:</sys:String>
+    <sys:String x:Key="DiskSeek.Label.StartPosition" xmlns:sys="clr-namespace:System;assembly=mscorlib">起始位置</sys:String>
+    <sys:String x:Key="DiskSeek.Label.RequestCount" xmlns:sys="clr-namespace:System;assembly=mscorlib">请求数量</sys:String>
+    <sys:String x:Key="DiskSeek.Label.RequestQueue" xmlns:sys="clr-namespace:System;assembly=mscorlib">请求队列</sys:String>
+    <sys:String x:Key="DiskSeek.Button.StartSimulation" xmlns:sys="clr-namespace:System;assembly=mscorlib">开始模拟</sys:String>
+    <sys:String x:Key="DiskSeek.Label.TotalSeekLength" xmlns:sys="clr-namespace:System;assembly=mscorlib">总寻道长度:</sys:String>
+    <sys:String x:Key="DiskSeek.Label.AvgSeekLength" xmlns:sys="clr-namespace:System;assembly=mscorlib">平均寻道长度:</sys:String>
+    <sys:String x:Key="DiskSeek.Algorithm.SSTF" xmlns:sys="clr-namespace:System;assembly=mscorlib">SSTF</sys:String>
+    <sys:String x:Key="DiskSeek.Algorithm.SCAN" xmlns:sys="clr-namespace:System;assembly=mscorlib">SCAN</sys:String>
+    <sys:String x:Key="DiskSeek.Algorithm.CSCAN" xmlns:sys="clr-namespace:System;assembly=mscorlib">C-SCAN</sys:String>
 </ResourceDictionary>

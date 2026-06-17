@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -58,15 +58,23 @@ public partial class PageReplacementAlgorithmPage : UserControl
 
             // 显示所有步骤（或者你可以改为只显示到当前步骤）
             UpdateVisualization();
-            TxtStats.Text =
-                $"总页数: {pages.Length} | 缺页次数: {_records.Count(r => !r.IsHit)} | 缺页率: {(_records.Count(r => !r.IsHit) * 100.0 / pages.Length):F1}%";
+            int pageFaults = _records.Count(r => !r.IsHit);
+            double faultRate = pageFaults * 100.0 / pages.Length;
+            TxtStats.Text = string.Format(
+                FindResource("PageReplacement.Stats.TotalPages") + " | " +
+                FindResource("PageReplacement.Stats.PageFaults") + " | " +
+                FindResource("PageReplacement.Stats.PageFaultRate"),
+                pages.Length, pageFaults, faultRate);
 
             // 自动跳到第一步
             if (_records.Any()) MoveToStep(0);
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"错误: {ex.Message}", "输入解析失败", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(
+                string.Format(FindResource("PageReplacement.Error.Title") + ": {0}", ex.Message),
+                FindResource("PageReplacement.Error.Title") as string,
+                MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 
@@ -99,9 +107,11 @@ public partial class PageReplacementAlgorithmPage : UserControl
 
         // 高亮当前步骤（简单实现：滚动到对应位置）
         // 在实际项目中，可以通过修改VM的边框颜色来实现高亮
-        TxtStatus.Text = $"当前步骤: {_currentStep + 1} / {_records.Count} | " +
-                         $"访问页面: {_records[_currentStep].CurrentPage} | " +
-                         $"{_records[_currentStep].AlgorithmNote}";
+        TxtStatus.Text = string.Format(
+            FindResource("PageReplacement.Status.CurrentStep") + " | " +
+            FindResource("PageReplacement.Status.AccessPage") + " | " +
+            "{2}",
+            _currentStep + 1, _records.Count, _records[_currentStep].CurrentPage, _records[_currentStep].AlgorithmNote);
     }
 
     private void BtnNext_Click(object sender, RoutedEventArgs e) => MoveToStep(_currentStep + 1);
@@ -122,7 +132,7 @@ public partial class PageReplacementAlgorithmPage : UserControl
         }
 
         _isAutoPlaying = true;
-        BtnAutoPlay.Content = "⏸ 暂停";
+        BtnAutoPlay.Content = FindResource("PageReplacement.Button.Pause");
         if (_currentStep >= _records.Count - 1) _currentStep = -1;
         _timer.Start();
     }
@@ -142,6 +152,6 @@ public partial class PageReplacementAlgorithmPage : UserControl
     {
         _timer.Stop();
         _isAutoPlaying = false;
-        BtnAutoPlay.Content = "▶ 自动播放";
+        BtnAutoPlay.Content = FindResource("PageReplacement.Button.AutoPlay");
     }
 }

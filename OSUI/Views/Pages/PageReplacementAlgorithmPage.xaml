@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="OSUI.Views.Pages.PageReplacementAlgorithmPage"
+<UserControl x:Class="OSUI.Views.Pages.PageReplacementAlgorithmPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,9 +7,18 @@
              mc:Ignorable="d"
              xmlns:vm="clr-namespace:OSUI.ViewModels"
              xmlns:extensions="clr-namespace:OSUI.Extensions"
+             xmlns:res="clr-namespace:System;assembly=mscorlib"
              DataContext="{extensions:DI {x:Type vm:PageReplacementAlgorithmPageViewModel}}"
              d:DataContext="{d:DesignInstance vm:PageReplacementAlgorithmPageViewModel}"
              d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Localization/Strings.zh-CN.xaml" />
+                <ResourceDictionary Source="/Resources/Localization/Strings.en-US.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" /> <!-- 输入区 -->
@@ -20,28 +29,28 @@
 
         <!-- 1. 输入区域 -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBlock Text="页面序列:" VerticalAlignment="Center" FontWeight="Bold" />
+            <TextBlock Text="{DynamicResource PageReplacement.Label.PageSequence}" VerticalAlignment="Center" FontWeight="Bold" />
             <TextBox x:Name="TxtPages" Width="300" Margin="5,0" Padding="5"
                      Text="7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1" />
 
-            <TextBlock Text="物理块数:" VerticalAlignment="Center" FontWeight="Bold" Margin="15,0,0,0" />
+            <TextBlock Text="{DynamicResource PageReplacement.Label.FrameCount}" VerticalAlignment="Center" FontWeight="Bold" Margin="15,0,0,0" />
             <TextBox x:Name="TxtFrames" Width="50" Margin="5,0" Padding="5" Text="3" />
 
             <ComboBox x:Name="CmbAlgorithm" Width="100" Margin="15,0" SelectedIndex="0">
-                <ComboBoxItem Content="FIFO" />
-                <ComboBoxItem Content="LRU" />
-                <ComboBoxItem Content="OPT" />
+                <ComboBoxItem Content="{DynamicResource PageReplacement.Algorithm.FIFO}" />
+                <ComboBoxItem Content="{DynamicResource PageReplacement.Algorithm.LRU}" />
+                <ComboBoxItem Content="{DynamicResource PageReplacement.Algorithm.OPT}" />
             </ComboBox>
 
-            <Button Content="开始演示" Click="BtnStart_Click" Padding="15,5"
+            <Button Content="{DynamicResource PageReplacement.Button.Start}" Click="BtnStart_Click" Padding="15,5"
                     Background="#2196F3" Foreground="White" BorderThickness="0" Cursor="Hand" />
         </StackPanel>
 
         <!-- 2. 播放控制 -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,15">
-            <Button x:Name="BtnPrev" Content="⏮ 上一步" Click="BtnPrev_Click" Margin="0,0,5,0" Padding="10,3" />
-            <Button x:Name="BtnNext" Content="下一步 ⏭" Click="BtnNext_Click" Margin="0,0,5,0" Padding="10,3" />
-            <Button x:Name="BtnAutoPlay" Content="▶ 自动播放" Click="BtnAutoPlay_Click" Padding="10,3" />
+            <Button x:Name="BtnPrev" Content="{DynamicResource PageReplacement.Button.PrevStep}" Click="BtnPrev_Click" Margin="0,0,5,0" Padding="10,3" />
+            <Button x:Name="BtnNext" Content="{DynamicResource PageReplacement.Button.NextStep}" Click="BtnNext_Click" Margin="0,0,5,0" Padding="10,3" />
+            <Button x:Name="BtnAutoPlay" Content="{DynamicResource PageReplacement.Button.AutoPlay}" Click="BtnAutoPlay_Click" Padding="10,3" />
             <TextBlock x:Name="TxtStatus" Margin="20,0" VerticalAlignment="Center" FontSize="14" Foreground="#333" />
         </StackPanel>
 
