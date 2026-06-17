@@ -11,14 +11,14 @@
              DataContext="{extensions:DI {x:Type vm:DiskSeekAlgorithmPageViewModel}}"
              d:DataContext="{d:DesignInstance vm:DiskSeekAlgorithmPageViewModel}"
              d:DesignHeight="300" d:DesignWidth="800">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/Localization/Strings.zh-CN.xaml" />
-                <ResourceDictionary Source="/Resources/Localization/Strings.en-US.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
+    <!-- <UserControl.Resources> -->
+    <!--     <ResourceDictionary> -->
+    <!--         <ResourceDictionary.MergedDictionaries> -->
+    <!--             <ResourceDictionary Source="/Resources/Localization/Strings.zh-CN.xaml" /> -->
+    <!--             <ResourceDictionary Source="/Resources/Localization/Strings.en-US.xaml" /> -->
+    <!--         </ResourceDictionary.MergedDictionaries> -->
+    <!--     </ResourceDictionary> -->
+    <!-- </UserControl.Resources> -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
